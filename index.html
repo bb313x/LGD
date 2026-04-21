@@ -178,8 +178,10 @@ body.light-mode .hero-bg {
   .hero-ctas { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
   .btn-primary { background: var(--gradient); color: white; border: none; padding: 0.9rem 2rem; border-radius: 100px; font-family: var(--font-sans); font-size: 1rem; font-weight: 500; cursor: pointer; transition: opacity 0.2s, transform 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
   .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
-  .btn-outline { background: transparent; color: white; border: 1px solid var(--border); padding: 0.9rem 2rem; border-radius: 100px; font-family: var(--font-sans); font-size: 1rem; font-weight: 400; cursor: pointer; transition: border-color 0.2s, background 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
-  .btn-outline:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.04); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 0.9rem 2rem; border-radius: 100px; font-family: var(--font-sans); font-size: 1rem; font-weight: 500; cursor: pointer; transition: border-color 0.2s, background 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .btn-outline:hover { border-color: var(--purple-light); background: rgba(139,85,246,0.08); }
+  body.light-mode .btn-outline { color: var(--text); border-color: rgba(10,10,26,0.18); }
+  body.light-mode .btn-outline:hover { border-color: var(--purple); background: rgba(107,53,217,0.08); }
 
   .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
   .hero-stat-num { font-size: 2rem; font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -549,7 +551,10 @@ body.light-mode .hero-bg {
   .stagger-4 { transition-delay: 0.4s; }
 
         .site-logo { height: 38px; width: auto; display: block; }
-        </style>
+        
+  ::selection { background: rgba(139,85,246,0.35); color: inherit; }
+  body.light-mode ::selection { background: rgba(107,53,217,0.25); color: #0A0A1A; }
+</style>
 </head>
 <body>
 
@@ -760,7 +765,7 @@ body.light-mode .hero-bg {
 <!-- ===== WHO WE HELP ===== -->
 <section class="section" id="who-we-help">
   <div class="container">
-    <div style="text-align:center; max-width:640px; margin: 0 auto 3rem;" class="fade-up">
+    <div style="text-align:center; max-width:820px; margin: 0 auto 3rem;" class="fade-up">
       <p class="overline">Who We Help</p>
       <h2 class="headline" style="margin: 0.75rem 0 1rem;">Built for <span class="gradient-text">ambitious businesses</span></h2>
       <p class="subhead" style="font-size: 1rem;">Whether you're selling to businesses or consumers, we craft the strategy that drives real revenue — not just vanity metrics.</p>
@@ -869,7 +874,7 @@ body.light-mode .hero-bg {
 <!-- ===== TESTIMONIALS ===== -->
 <section class="section">
   <div class="container">
-    <div style="text-align:center; max-width:600px; margin: 0 auto 3rem;" class="fade-up">
+    <div style="text-align:center; max-width:820px; margin: 0 auto 3rem;" class="fade-up">
       <p class="overline">Client Results</p>
       <h2 class="headline" style="margin:0.75rem 0 1rem;">Real businesses. <span class="gradient-text">Real growth.</span></h2>
     </div>
@@ -878,8 +883,7 @@ body.light-mode .hero-bg {
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"LGD completely transformed our lead generation. Within 90 days we tripled our inbound inquiries and cut cost-per-lead in half. The AI-powered approach is something else."</p>
         <div class="testimonial-author">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marcus R." style="width:56px;height:56px;border-radius:50%;object-fit:cover;margin-right:8px;">
-          <div>
+                    <div>
             <div class="author-name">Marcus R.</div>
             <div class="author-title">CEO, Legal Services Firm</div>
           </div>
@@ -889,8 +893,7 @@ body.light-mode .hero-bg {
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Finally an agency that doesn't just report vanity metrics. They showed us exactly what was driving revenue and what wasn't. Our ROAS went from 1.8x to 4.2x in five months."</p>
         <div class="testimonial-author">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophia A." style="width:56px;height:56px;border-radius:50%;object-fit:cover;margin-right:8px;">
-          <div>
+                    <div>
             <div class="author-name">Sophia A.</div>
             <div class="author-title">Founder, eCommerce Brand</div>
           </div>
@@ -1090,7 +1093,7 @@ body.light-mode .hero-bg {
 
     <div class="footer-bottom">
       <p>© 2026 Lets Grow Digital. letsgrowdigital.ai · All rights reserved.</p>
-      <p><a href="privacy.html" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--purple-light)'" onmouseout="this.style.color='var(--text-muted)'">Privacy Policy</a> · <a href="#" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--purple-light)'" onmouseout="this.style.color='var(--text-muted)'">Terms of Service</a></p>
+      <p><a href="privacy.html" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--purple-light)'" onmouseout="this.style.color='var(--text-muted)'">Privacy Policy</a></p>
     </div>
   </div>
 </footer>
@@ -1290,4 +1293,4 @@ function toggleTheme() {
 })();
 </script>
 
-</body>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+</body>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               

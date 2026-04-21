@@ -153,6 +153,9 @@
             justify-content: center;
         }
 
+        .nav-ai-link { color: var(--magenta-light) !important; font-weight: 600; }
+        .nav-ai-link:hover { color: var(--purple-light) !important; }
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -471,16 +474,21 @@
 
         .pain-close {
             text-align: center;
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--text-muted);
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text);
             margin-top: 2rem;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .pain-close strong {
-            color: var(--text);
+            color: var(--magenta-light);
             display: block;
-            margin-top: 0.5rem;
+            margin-top: 0.75rem;
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
         /* ===== HOW IT WORKS ===== */
@@ -569,17 +577,40 @@
         .timeline-bar {
             background: var(--dark-3);
             border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.95rem;
-            color: var(--text-muted);
+            padding: 1.75rem;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: 1fr auto 1.6fr auto 1fr;
+            gap: 1.25rem;
+            align-items: start;
+            margin-top: 2rem;
         }
-
-        .timeline-bar strong {
-            color: var(--text);
-            display: block;
-            margin-bottom: 0.5rem;
+        .timeline-step {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .timeline-step strong {
+            color: var(--magenta-light);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .timeline-step span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+        .timeline-arrow {
+            color: var(--purple-light);
+            font-size: 1.5rem;
+            align-self: center;
+            opacity: 0.6;
+        }
+        @media (max-width: 768px) {
+            .timeline-bar { grid-template-columns: 1fr; }
+            .timeline-arrow { transform: rotate(90deg); justify-self: center; }
         }
 
         /* ===== FEATURES ===== */
@@ -1095,9 +1126,9 @@
 
         .pricing-badge {
             display: inline-block;
-            background: rgba(34, 197, 94, 0.15);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            color: #22C55E;
+            background: rgba(139,85,246,0.15);
+            border: 1px solid rgba(139,85,246,0.4);
+            color: var(--magenta-light);
             padding: 0.5rem 1rem;
             border-radius: 6px;
             font-size: 0.85rem;
@@ -1193,18 +1224,31 @@
         }
 
         .form-trust {
+            background: var(--dark-3);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-            font-size: 0.9rem;
+            gap: 0.6rem;
+            font-size: 0.92rem;
             color: var(--text-muted);
             margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
         }
 
         .form-trust strong {
             color: var(--text);
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .form-trust span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .form-right {
@@ -1330,16 +1374,10 @@
         }
 
         /* ===== SCROLL ANIMATIONS ===== */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease-out;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* Default: content visible (no-JS fallback). JS adds .js-fade-init to enable animation. */
+        .fade-up { opacity: 1; transform: none; transition: all 0.6s ease-out; }
+        .js-fade-init .fade-up { opacity: 0; transform: translateY(30px); }
+        .js-fade-init .fade-up.visible { opacity: 1; transform: translateY(0); }
 
         /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 768px) {
@@ -1513,7 +1551,10 @@
                 font-size: 2rem;
             }
         }
-    </style>
+    
+  ::selection { background: rgba(139,85,246,0.35); color: inherit; }
+  body.light-mode ::selection { background: rgba(107,53,217,0.25); color: #0A0A1A; }
+</style>
 </head>
 <body>
     <!-- Navigation -->
@@ -1526,8 +1567,7 @@
 
         <div class="nav-center" id="navCenter">
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#" class="active">AI Agent</a></li>
+                <li><a href="ai.html" class="nav-ai-link active">✦ AI Agent</a></li>
                 <li><a href="agency.html">Agency</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
@@ -1654,7 +1694,20 @@
             </div>
 
             <div class="timeline-bar fade-up">
-                <strong>Day 1:</strong> Onboarding call → <strong>Day 2:</strong> AI trained on your business → <strong>Day 2:</strong> You're live
+                <div class="timeline-step">
+                    <strong>Day 1</strong>
+                    <span>Onboarding call — we map your services, pricing, and after-hours rules.</span>
+                </div>
+                <div class="timeline-arrow">→</div>
+                <div class="timeline-step">
+                    <strong>Day 2</strong>
+                    <span>AI trained on your business — auto-ingested from your Google Business Profile and website, overlaid with a trade-specific FAQ &amp; service-catalog template, then tuned with your pricing, service-area boundaries, specific technicians, brands serviced, and special offers.</span>
+                </div>
+                <div class="timeline-arrow">→</div>
+                <div class="timeline-step">
+                    <strong>Day 3</strong>
+                    <span>You're live — calls start routing the same day.</span>
+                </div>
             </div>
         </div>
     </section>
@@ -1863,12 +1916,18 @@
                 <button class="trade-badge" data-trade="hvac">❄️ HVAC</button>
                 <button class="trade-badge" data-trade="electrical">⚡ Electrical</button>
                 <button class="trade-badge" data-trade="roofing">🏠 Roofing</button>
-                <button class="trade-badge" data-trade="landscaping">🌿 Landscaping</button>
-                <button class="trade-badge" data-trade="cleaning">🧹 Cleaning</button>
+                <button class="trade-badge" data-trade="siding">🧱 Siding &amp; Exteriors</button>
+                <button class="trade-badge" data-trade="landscaping">🌿 Landscaping &amp; Lawn Care</button>
+                <button class="trade-badge" data-trade="pool">🏊 Pool &amp; Hot Tub</button>
                 <button class="trade-badge" data-trade="pest">🐛 Pest Control</button>
+                <button class="trade-badge" data-trade="cleaning">🧹 Cleaning</button>
+                <button class="trade-badge" data-trade="propmgmt">🏢 Property Mgmt</button>
                 <button class="trade-badge" data-trade="locksmith">🔐 Locksmith</button>
-                <button class="trade-badge" data-trade="painting">🎨 Painting</button>
                 <button class="trade-badge" data-trade="garage">🚗 Garage Doors</button>
+                <button class="trade-badge" data-trade="autobody">🚙 Auto Body</button>
+                <button class="trade-badge" data-trade="detailing">✨ Auto Detailing</button>
+                <button class="trade-badge" data-trade="petgrooming">🐾 Pet Grooming</button>
+                <button class="trade-badge" data-trade="painting">🎨 Painting</button>
             </div>
 
             <div class="trade-info" data-trade="plumbing">
@@ -1919,6 +1978,36 @@
             <div class="trade-info" data-trade="garage">
                 <h4>🚗 Garage Doors</h4>
                 <p>Understands door types, panel vs. full replacement, and emergency repair needs. Captures customer details and books preventive maintenance appointments.</p>
+            </div>
+
+            <div class="trade-info" data-trade="siding">
+                <h4>🧱 Siding &amp; Exteriors</h4>
+                <p>Qualifies by property size, siding type, and project scope — repair vs. full replacement. Captures storm damage details and insurance status when relevant.</p>
+            </div>
+
+            <div class="trade-info" data-trade="pool">
+                <h4>🏊 Pool &amp; Hot Tub</h4>
+                <p>Handles openings, closings, equipment repair, and water chemistry questions. Books seasonal service windows and flags urgent equipment failures.</p>
+            </div>
+
+            <div class="trade-info" data-trade="propmgmt">
+                <h4>🏢 Property Management</h4>
+                <p>Triages tenant maintenance requests by urgency, captures unit and property details, and routes emergency vs. routine work to the right vendor or in-house team.</p>
+            </div>
+
+            <div class="trade-info" data-trade="autobody">
+                <h4>🚙 Auto Body</h4>
+                <p>Captures accident details, insurance status, year/make/model, and scope of damage. Books estimates and flags insurance-adjuster vs. cash-pay workflows.</p>
+            </div>
+
+            <div class="trade-info" data-trade="detailing">
+                <h4>✨ Auto Detailing</h4>
+                <p>Prices by vehicle size and package tier, books recurring service intervals, and handles add-ons like ceramic coating or paint correction inquiries.</p>
+            </div>
+
+            <div class="trade-info" data-trade="petgrooming">
+                <h4>🐾 Pet Grooming</h4>
+                <p>Handles breed-specific pricing, service menu (bath, full groom, teeth, nails), and recurring appointment preferences. Flags temperament notes for your groomers.</p>
             </div>
 
             <p class="trades-note">Don't see your trade? We'll build it.</p>
@@ -2006,12 +2095,12 @@
 
             <div class="testimonial-card fade-up">
                 <p class="testimonial-quote">"I used to miss 5-6 calls a day. Now every one gets answered, customers think it's a real person, and I get a text with the details. I signed up 3 new jobs in the first week."</p>
-                <p class="testimonial-author">— HVAC Contractor, NJ (Early Beta)</p>
+                <p class="testimonial-author">— HVAC Contractor, NJ</p>
             </div>
 
             <div class="testimonial-card fade-up">
                 <p class="testimonial-quote">"Setup took 20 minutes. My AI knows my entire service menu, my zip codes, and even my pricing. It's like hiring a full-time receptionist for less than I spend on coffee."</p>
-                <p class="testimonial-author">— Plumbing Company Owner, NJ (Early Beta)</p>
+                <p class="testimonial-author">— Plumbing Company Owner, NJ</p>
             </div>
         </div>
     </section>
@@ -2096,12 +2185,18 @@
                             <option value="HVAC">HVAC</option>
                             <option value="Electrical">Electrical</option>
                             <option value="Roofing">Roofing</option>
-                            <option value="Landscaping">Landscaping</option>
-                            <option value="Cleaning">Cleaning</option>
+                            <option value="Siding & Exteriors">Siding &amp; Exteriors</option>
+                            <option value="Landscaping & Lawn Care">Landscaping &amp; Lawn Care</option>
+                            <option value="Pool & Hot Tub">Pool &amp; Hot Tub</option>
                             <option value="Pest Control">Pest Control</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Property Management">Property Management</option>
                             <option value="Locksmith">Locksmith</option>
-                            <option value="Painting">Painting</option>
                             <option value="Garage Doors">Garage Doors</option>
+                            <option value="Auto Body">Auto Body</option>
+                            <option value="Auto Detailing">Auto Detailing</option>
+                            <option value="Pet Grooming">Pet Grooming</option>
+                            <option value="Painting">Painting</option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
@@ -2130,47 +2225,42 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <h4>Product</h4>
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#demo-form">Book Demo</a></li>
-                        <li><a href="#">Documentation</a></li>
+                        <li><a href="ai.html">AI Front Desk</a></li>
+                        <li><a href="agency.html#services">SEO &amp; GEO</a></li>
+                        <li><a href="agency.html#services">Paid Media</a></li>
+                        <li><a href="agency.html#services">Meta &amp; Social Ads</a></li>
+                        <li><a href="agency.html#services">Email &amp; SMS</a></li>
+                        <li><a href="agency.html#services">Web Design &amp; CRO</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
+                        <li><a href="about.html">About LGD</a></li>
+                        <li><a href="agency.html#who-we-help">Who We Help</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                        <li><a href="index.html">Home</a></li>
                     </ul>
                 </div>
-
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="ai.html">AI Front Desk</a></li>
+                        <li><a href="agency.html">Agency Services</a></li>
+                    </ul>
+                </div>
                 <div class="footer-section">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 LetsGrowDigital.ai. All rights reserved.</p>
+                <p>&copy; 2026 Lets Grow Digital. letsgrowdigital.ai · All rights reserved.</p>
                 <p>Built for home service professionals who want to grow.</p>
             </div>
         </div>
@@ -2195,22 +2285,22 @@
 
     <!-- Main JS -->
     <script>
-        // Theme Toggle
+        // Theme Toggle — standardized on lgd-theme key across site
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
-        const isDarkMode = localStorage.getItem('darkMode') !== 'false';
-
-        if (!isDarkMode) {
+        if (localStorage.getItem('lgd-theme') === 'light') {
             body.classList.add('light-mode');
-            themeToggle.textContent = '🌙';
+            if (themeToggle) themeToggle.textContent = '🌙';
         }
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            const isNowLight = body.classList.contains('light-mode');
-            localStorage.setItem('darkMode', !isNowLight);
-            themeToggle.textContent = isNowLight ? '🌙' : '☀️';
-        });
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('light-mode');
+                const isNowLight = body.classList.contains('light-mode');
+                localStorage.setItem('lgd-theme', isNowLight ? 'light' : 'dark');
+                themeToggle.textContent = isNowLight ? '🌙' : '☀️';
+            });
+        }
 
         // Nav Scroll Effect
         const nav = document.querySelector('nav');
@@ -2239,21 +2329,17 @@
             });
         });
 
-        // Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
+        // Scroll Animations — enable animation only after JS is confirmed running
+        document.documentElement.classList.add('js-fade-init');
+        const observerOptions = { threshold: 0.05, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, observerOptions);
-
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        // Safety net: after 1.2s force any still-hidden fade-up to visible so content never vanishes
+        setTimeout(() => {
+            document.querySelectorAll('.fade-up:not(.visible)').forEach(el => el.classList.add('visible'));
+        }, 1200);
 
         // Demo Tabs
         const demoTabs = document.querySelectorAll('.demo-tab');
@@ -2330,22 +2416,4 @@
                 trade: document.getElementById('trade').value,
                 bestTime: document.getElementById('bestTime').value,
                 source: 'AI Front Desk Demo Request',
-                entryPoint: 'AI Page Demo Form'
-            };
-
-            fetch('https://kb-leads-proxy.bryan-boutin.workers.dev/lead', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Demo booked! We\'ll be in touch shortly.');
-                    document.getElementById('demoForm').reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an issue submitting your fo
+   
