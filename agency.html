@@ -7,7 +7,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.jpg" type="image/jpeg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon-32.png">
 <meta name="description" content="Full-service digital marketing agency. SEO, paid media, social ads, email marketing, web design, CRM, and AI integration. AI-first strategies for business growth.">
 <style>
   :root {
@@ -17,7 +20,7 @@
     --gradient-text: linear-gradient(90deg, #8B55F6 0%, #F055C0 100%);
     --dark: #0A0A0F; --dark-2: #111118; --dark-3: #18181F; --dark-4: #22222C;
     --border: rgba(255,255,255,0.08); --text: #FFFFFF;
-    --text-muted: rgba(255,255,255,0.55); --text-dim: rgba(255,255,255,0.35);
+    --text-muted: rgba(255,255,255,0.7); --text-dim: rgba(255,255,255,0.5);
     --font-sans: 'DM Sans', sans-serif; --font-serif: 'DM Serif Display', serif;
   }
   body.light-mode {
@@ -75,10 +78,11 @@
   .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap; }
   .hero-stat-num { font-size: 2rem; font-weight: 800; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
   .hero-stat-label { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.2rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
-  .service-card { background: var(--dark-3); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; transition: all 0.3s; }
+  .service-card { background: var(--dark-3); border: 1px solid var(--border); border-radius: 20px; padding: 1.5rem; transition: all 0.3s; }
   .service-card:hover { border-color: rgba(139,85,246,0.3); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(107,53,217,0.12); }
-  .service-icon { font-size: 2rem; margin-bottom: 1rem; }
-  .service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; }
+  .service-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+  .service-icon { font-size: 1.5rem; line-height: 1; flex-shrink: 0; }
+  .service-card h3 { font-size: 1rem; font-weight: 600; margin: 0; line-height: 1.25; }
   .service-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
   .service-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(139,85,246,0.12); color: var(--purple-light); border-radius: 6px; padding: 0.2rem 0.6rem; margin-top: 1rem; }
   .ai-badge { background: linear-gradient(90deg, rgba(107,53,217,0.15), rgba(212,53,160,0.15)) !important; color: var(--magenta-light) !important; border: 1px solid rgba(212,53,160,0.2); }
@@ -214,57 +218,48 @@
     </div>
     <div class="grid-3">
       <div class="service-card fade-up stagger-1">
-        <div class="service-icon">🔍</div>
-        <h3>SEO & Generative Engine Optimization</h3>
-        <p>Grow organic traffic and make your brand visible across both traditional search and AI-powered tools like ChatGPT, Gemini, and Perplexity.</p>
+        <div class="service-card-header"><div class="service-icon">🔍</div><h3>SEO & Generative Engine Optimization</h3></div>
+        <p>Grow organic traffic and make your brand visible across both traditional search and AI-powered tools like Anthropic Claude, ChatGPT, Gemini, and Perplexity.</p>
         <span class="service-tag">Owned Media</span>
       </div>
       <div class="service-card fade-up stagger-2">
-        <div class="service-icon">💰</div>
-        <h3>Paid Media & PPC</h3>
+        <div class="service-card-header"><div class="service-icon">💰</div><h3>Paid Media & PPC</h3></div>
         <p>Capture high-intent traffic and eliminate wasted spend with data-driven Google, Bing, and programmatic campaigns engineered for ROI.</p>
         <span class="service-tag">Paid Media</span>
       </div>
       <div class="service-card fade-up stagger-3">
-        <div class="service-icon">📱</div>
-        <h3>Paid Social & Meta Ads</h3>
+        <div class="service-card-header"><div class="service-icon">📱</div><h3>Paid Social & Meta Ads</h3></div>
         <p>Convert new audiences on Facebook, Instagram, TikTok, and YouTube. We get your ads seen and your target audience to actually buy.</p>
         <span class="service-tag">Paid Social</span>
       </div>
       <div class="service-card fade-up stagger-1">
-        <div class="service-icon">✉️</div>
-        <h3>Email & SMS Marketing</h3>
+        <div class="service-card-header"><div class="service-icon">✉️</div><h3>Email & SMS Marketing</h3></div>
         <p>Automated campaigns that nurture leads throughout the customer journey, maximize lifetime value, and keep your brand top of mind.</p>
         <span class="service-tag">Retention</span>
       </div>
       <div class="service-card fade-up stagger-2">
-        <div class="service-icon">🎨</div>
-        <h3>Content Marketing & Creative</h3>
+        <div class="service-card-header"><div class="service-icon">🎨</div><h3>Content Marketing & Creative</h3></div>
         <p>Strategic content and creative services that engage customers at every journey stage. Videos, visuals, copy — all aligned to your brand.</p>
         <span class="service-tag">Owned Media</span>
       </div>
       <div class="service-card fade-up stagger-3">
-        <div class="service-icon">🌐</div>
-        <h3>Web Design & CRO</h3>
+        <div class="service-card-header"><div class="service-icon">🌐</div><h3>Web Design & CRO</h3></div>
         <p>Beautiful websites engineered to convert. We solve the real problems: traffic not converting, no leads, poor ROI, Google invisibility.</p>
         <span class="service-tag">Conversion</span>
       </div>
       <div class="service-card fade-up stagger-1" style="border-color: rgba(212,53,160,0.2); background: linear-gradient(135deg, rgba(107,53,217,0.08), rgba(212,53,160,0.08));">
-        <div class="service-icon">🤖</div>
-        <h3>AI Integration & Agents</h3>
+        <div class="service-card-header"><div class="service-icon">🤖</div><h3>AI Integration & Agents</h3></div>
         <p>Our AI monitors campaigns 24/7, responds to customers with pre-defined triggers, automates time-consuming processes, and surfaces real-time insights.</p>
         <span class="service-tag ai-badge">✦ AI-Native</span>
         <p style="font-size:0.8rem; margin-top:0.75rem; color: var(--magenta-light);">→ <a href="ai.html" style="color:var(--magenta-light);">Looking for our AI Voice & Text product?</a></p>
       </div>
       <div class="service-card fade-up stagger-2">
-        <div class="service-icon">📊</div>
-        <h3>CRM & Lead Management</h3>
+        <div class="service-card-header"><div class="service-icon">📊</div><h3>CRM & Lead Management</h3></div>
         <p>AI-enabled lead management that replaces your spreadsheets. Manage your entire sales cycle from lead-to-close without adding headcount.</p>
         <span class="service-tag">Growth Ops</span>
       </div>
       <div class="service-card fade-up stagger-3">
-        <div class="service-icon">⭐</div>
-        <h3>Reputation Management</h3>
+        <div class="service-card-header"><div class="service-icon">⭐</div><h3>Reputation Management</h3></div>
         <p>Protect and amplify your brand reputation. We monitor, respond, and build the social proof that turns prospects into confident buyers.</p>
         <span class="service-tag">Brand Trust</span>
       </div>
@@ -297,10 +292,10 @@
       <p class="subhead" style="font-size:1rem;">Whether you're selling to businesses or consumers, we craft the strategy that drives real revenue — not just vanity metrics.</p>
     </div>
     <div class="who-tabs">
-      <button class="tab-btn active" onclick="showTab('b2b')">B2B Companies</button>
-      <button class="tab-btn" onclick="showTab('b2c')">B2C Brands</button>
+      <button class="tab-btn" onclick="showTab('b2b')">B2B Companies</button>
+      <button class="tab-btn active" onclick="showTab('b2c')">B2C Brands</button>
     </div>
-    <div class="tab-content active" id="tab-b2b">
+    <div class="tab-content" id="tab-b2b">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; max-width:900px; margin:0 auto;">
         <div class="fade-up">
           <h3 style="font-size:1.5rem; margin-bottom:1rem;">B2B Companies</h3>
@@ -325,7 +320,7 @@
         </div>
       </div>
     </div>
-    <div class="tab-content" id="tab-b2c">
+    <div class="tab-content active" id="tab-b2c">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; max-width:900px; margin:0 auto;">
         <div class="fade-up">
           <h3 style="font-size:1.5rem; margin-bottom:1rem;">B2C Brands</h3>
@@ -500,7 +495,7 @@
         </div>
         <div class="contact-point">
           <div class="contact-point-icon">📍</div>
-          <div><h4 style="font-weight:600; margin-bottom:0.25rem;">Location</h4><p style="color:var(--text-muted); font-size:0.9rem;">Point Pleasant, NJ</p></div>
+          <div><h4 style="font-weight:600; margin-bottom:0.25rem;">Location</h4><p style="color:var(--text-muted); font-size:0.9rem;">Bay Head, NJ</p></div>
         </div>
         <div class="contact-point">
           <div class="contact-point-icon">⚡</div>
@@ -553,16 +548,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <svg width="120" height="36" viewBox="0 0 180 40" fill="none">
-          <path d="M 28 12 A 13 13 0 1 0 30 16" stroke="url(#ft2)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <path d="M 28 12 L 36 4" stroke="url(#ft2)" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M 36 4 L 36 10" stroke="url(#ft2)" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M 36 4 L 30 5" stroke="url(#ft2)" stroke-width="1.5" stroke-linecap="round"/>
-          <text x="9" y="26" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="url(#ft2)">grow.</text>
-          <text x="45" y="16" font-family="DM Sans, sans-serif" font-size="13" font-weight="400" fill="rgba(255,255,255,0.85)">lets grow</text>
-          <text x="45" y="32" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="url(#ft2)">digital.ai</text>
-          <defs><linearGradient id="ft2" x1="0" y1="0" x2="180" y2="40"><stop offset="0%" stop-color="#8B55F6"/><stop offset="100%" stop-color="#F055C0"/></linearGradient></defs>
-        </svg>
+        <img src="logo.png" alt="Lets Grow Digital" style="height:48px; width:auto; display:block; margin-bottom:16px;">
         <p>Full-service digital marketing built for ambitious businesses. AI-first. Results-focused. Obsessively transparent.</p>
       </div>
       <div class="footer-col">
@@ -688,3 +674,4 @@ Cal("ui", { theme: "dark", styles: { branding: { brandColor: "#7c3aed" } } });
 </script>
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
