@@ -89,6 +89,19 @@
   .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
   .nav-ai-link { color: var(--magenta-light) !important; font-weight: 600; }
   .nav-ai-link:hover { color: var(--purple-light) !important; }
+  .theme-toggle { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.6rem; cursor: pointer; font-size: 0.85rem; color: var(--text); transition: all 0.2s; }
+  .theme-toggle:hover { border-color: var(--purple-light); }
+  body.light-mode {
+    --dark: #F8F8FF;
+    --dark-2: #FFFFFF;
+    --dark-3: #F0F0F8;
+    --dark-4: #E8E8F0;
+    --border: rgba(0,0,0,0.08);
+    --text: #0A0A1A;
+    --text-muted: rgba(10,10,26,0.6);
+    --text-dim: rgba(10,10,26,0.45);
+  }
+  body.light-mode nav { background: rgba(255,255,255,0.85); }
 
   /* ===== HERO ===== */
   .hero {
@@ -153,17 +166,19 @@
   .story-content h2 { margin-bottom: 24px; }
   .story-content p { color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
 
-  .approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+  .approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
   .approach-card {
     background: var(--dark-2);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 32px;
+    padding: 22px 24px;
     transition: all .3s;
   }
   .approach-card:hover { border-color: rgba(139,85,246,0.3); transform: translateY(-4px); }
-  .approach-card h3 { font-size: 1.15rem; margin-bottom: 12px; }
-  .approach-card p { color: var(--text-muted); font-size: .95rem; }
+  .approach-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 10px; }
+  .approach-card-icon { font-size: 1.3rem; line-height: 1; flex-shrink: 0; }
+  .approach-card h3 { font-size: 1rem; margin: 0; font-weight: 600; line-height: 1.25; }
+  .approach-card p { color: var(--text-muted); font-size: .9rem; line-height: 1.55; }
 
   .values-section { padding: 100px 0; background: linear-gradient(180deg, rgba(107,53,217,0.08), transparent); }
   .values-header { text-align: center; max-width: 700px; margin: 0 auto 64px; }
@@ -172,13 +187,14 @@
     background: var(--dark-2);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 36px;
+    padding: 22px 24px;
     transition: all .4s ease;
   }
   .value-card:hover { border-color: rgba(139,85,246,0.3); transform: translateY(-4px); }
-  .value-icon { font-size: 2rem; margin-bottom: 16px; }
-  .value-card h3 { font-size: 1.15rem; margin-bottom: 12px; }
-  .value-card p { color: var(--text-muted); font-size: .95rem; }
+  .value-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 10px; }
+  .value-icon { font-size: 1.3rem; line-height: 1; flex-shrink: 0; }
+  .value-card h3 { font-size: 1rem; margin: 0; font-weight: 600; line-height: 1.25; }
+  .value-card p { color: var(--text-muted); font-size: .9rem; line-height: 1.55; }
 
   /* TEAM */
   .team-section { padding: 100px 0; }
@@ -261,6 +277,9 @@
   .footer-col a:hover { color: var(--text); }
   .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border); }
   .footer-bottom p { font-size: .8rem; color: var(--text-dim); }
+
+  ::selection { background: rgba(139,85,246,0.35); color: inherit; }
+  body.light-mode ::selection { background: rgba(107,53,217,0.25); color: #0A0A1A; }
 </style>
 </head>
 <body>
@@ -278,6 +297,7 @@
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
   <a href="index.html#contact" class="nav-cta">Free Audit →</a>
+  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
 </div>
 </nav>
 
@@ -317,23 +337,23 @@
   <h2 class="headline">What Sets Us <span class="gradient-text">Apart</span></h2>
   <div class="approach-grid">
     <div class="approach-card">
-      <div style="font-size:2rem;margin-bottom:12px;">🤖</div>
-      <h3>AI-First Thinking</h3>
+
+      <div class="approach-card-header"><div class="approach-card-icon">🤖</div><h3>AI-First Thinking</h3></div>
       <p>We don't use AI as a tool. We design strategies around AI capabilities. From predictive analytics to content generation to campaign optimization, AI is built into everything we do.</p>
     </div>
     <div class="approach-card">
-      <div style="font-size:2rem;margin-bottom:12px;">📊</div>
-      <h3>Data-Driven Execution</h3>
+
+      <div class="approach-card-header"><div class="approach-card-icon">📊</div><h3>Data-Driven Execution</h3></div>
       <p>Every decision is backed by data. We set up proper analytics, run A/B tests, and iterate constantly. Vanity metrics mean nothing. Revenue growth is what matters.</p>
     </div>
     <div class="approach-card">
-      <div style="font-size:2rem;margin-bottom:12px;">⚡</div>
-      <h3>Speed & Agility</h3>
+
+      <div class="approach-card-header"><div class="approach-card-icon">⚡</div><h3>Speed & Agility</h3></div>
       <p>We move fast. Strategy to launch in days, not months. Real-time optimization. Quick pivots when data says it's time. We don't believe in slow-moving marketing bureaucracy.</p>
     </div>
     <div class="approach-card">
-      <div style="font-size:2rem;margin-bottom:12px;">🎯</div>
-      <h3>Full-Stack Expertise</h3>
+
+      <div class="approach-card-header"><div class="approach-card-icon">🎯</div><h3>Full-Stack Expertise</h3></div>
       <p>SEO. PPC. Social. Email. Web Design. CRM. We handle the entire funnel. This means coordinated strategies instead of isolated campaigns pulling in different directions.</p>
     </div>
   </div>
@@ -350,33 +370,33 @@
   </div>
   <div class="values-grid">
     <div class="value-card">
-      <div class="value-icon">🎯</div>
-      <h3>Revenue-Focused</h3>
+
+      <div class="value-card-header"><div class="value-icon">🎯</div><h3>Revenue-Focused</h3></div>
       <p>We don't optimize for impressions or clicks. We optimize for revenue. That's the only metric that matters to your business, and it's the only metric that matters to us.</p>
     </div>
     <div class="value-card">
-      <div class="value-icon">🔬</div>
-      <h3>Test Everything</h3>
+
+      <div class="value-card-header"><div class="value-icon">🔬</div><h3>Test Everything</h3></div>
       <p>We run experiments constantly. What works for one business won't work for another. We learn what works for YOUR business and double down on it.</p>
     </div>
     <div class="value-card">
-      <div class="value-icon">🤝</div>
-      <h3>True Partnership</h3>
+
+      <div class="value-card-header"><div class="value-icon">🤝</div><h3>True Partnership</h3></div>
       <p>Your success is our success. We're invested in your business goals, and we'll be honest about what we can and can't deliver. No fluff. No promises we can't keep.</p>
     </div>
     <div class="value-card">
-      <div class="value-icon">💡</div>
-      <h3>Innovation Always</h3>
+
+      <div class="value-card-header"><div class="value-icon">💡</div><h3>Innovation Always</h3></div>
       <p>The digital landscape changes constantly. We stay ahead of trends, experiment with new platforms early, and help you get competitive advantages before everyone else catches on.</p>
     </div>
     <div class="value-card">
-      <div class="value-icon">📈</div>
-      <h3>Transparent Reporting</h3>
+
+      <div class="value-card-header"><div class="value-icon">📈</div><h3>Transparent Reporting</h3></div>
       <p>You see exactly what we're doing, how much it costs, and what results it's generating. No black boxes. No vanity metrics. Just honest numbers and clear recommendations.</p>
     </div>
     <div class="value-card">
-      <div class="value-icon">⚙️</div>
-      <h3>Systems Over Heroics</h3>
+
+      <div class="value-card-header"><div class="value-icon">⚙️</div><h3>Systems Over Heroics</h3></div>
       <p>We build scalable systems that generate consistent results, not campaigns that depend on one person's genius. Systems means your growth is repeatable and sustainable.</p>
     </div>
   </div>
@@ -398,16 +418,16 @@
       <div class="member-image" aria-hidden="true"><span class="member-initials">B</span></div>
       <div class="member-info">
         <h3>Bryan</h3>
-        <div class="member-title">Co-Founder & Strategy Lead</div>
-        <p>Strategic thinker obsessed with AI and data. Bryan leads our product vision and ensures every strategy is grounded in real business outcomes.</p>
+        <div class="member-title">Co-Founder — Strategy, GTM, Operations &amp; Technology</div>
+        <p>Two decades operating at the intersection of strategy and execution — most recently inside a Fortune 100 enterprise risk function before going independent to build AI-native growth systems. Bryan owns product vision, go-to-market, operational rigor, and the technical architecture that turns AI from a buzzword into a P&amp;L line item for our clients.</p>
       </div>
     </div>
     <div class="team-member">
       <div class="member-image" aria-hidden="true"><span class="member-initials">K</span></div>
       <div class="member-info">
         <h3>Kirk</h3>
-        <div class="member-title">Co-Founder & Business Growth</div>
-        <p>Sales and marketing expert with a philosophy of radical simplicity. Kirk ensures our strategies are executable, our messaging is clear, and our clients actually see results.</p>
+        <div class="member-title">Co-Founder — Sales, Business Development, Marketing &amp; Growth</div>
+        <p>Revenue operator with a track record across capital raises, private-equity-backed exits, and scaled B2B/B2C growth engines. Kirk leads sales, business development, marketing, and growth — turning pipeline into closed revenue and keeping every client engagement relentlessly focused on outcomes that compound.</p>
       </div>
     </div>
   </div>
@@ -488,35 +508,53 @@
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="index.html#services">SEO & Organic</a></li>
-        <li><a href="index.html#services">Paid Media</a></li>
-        <li><a href="index.html#services">Social Media</a></li>
-        <li><a href="index.html#services">Email Marketing</a></li>
-        <li><a href="index.html#services">Web Design</a></li>
+        <li><a href="ai.html">AI Front Desk</a></li>
+        <li><a href="agency.html#services">SEO &amp; GEO</a></li>
+        <li><a href="agency.html#services">Paid Media</a></li>
+        <li><a href="agency.html#services">Meta &amp; Social Ads</a></li>
+        <li><a href="agency.html#services">Email &amp; SMS</a></li>
+        <li><a href="agency.html#services">Web Design &amp; CRO</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html">About LGD</a></li>
         <li><a href="index.html#contact">Contact</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Case Studies</a></li>
+        <li><a href="index.html">Home</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Resources</h4>
       <ul>
         <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="#">Terms</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 LetsGrowDigital.ai. All rights reserved.</p>
+    <p>&copy; 2026 Lets Grow Digital. letsgrowdigital.ai · All rights reserved.</p>
   </div>
 </div>
 </footer>
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle('light-mode');
+  const btn = document.getElementById('theme-toggle');
+  const isLight = document.body.classList.contains('light-mode');
+  if (btn) btn.textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('lgd-theme', isLight ? 'light' : 'dark');
+}
+(function() {
+  if (localStorage.getItem('lgd-theme') === 'light') {
+    document.body.classList.add('light-mode');
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('theme-toggle');
+      if (btn) btn.textContent = '🌙';
+    });
+  }
+})();
+</script>
 
 <!-- Cal.com Floating Booking Button -->
 <script type="text/javascript">
@@ -534,7 +572,6 @@ Cal("init", { origin: "https://cal.com" });
 Cal("floatingButton", { calLink: "letsgrowletsgo?metadata[source]=Lets Grow Digital Website", buttonText: "Book A Demo", buttonColor: "#7c3aed", buttonTextColor: "#ffffff", buttonPosition: "bottom-right" });
 Cal("ui", { theme: "dark", styles: { branding: { brandColor: "#7c3aed" } } });
 </script>
-
+
 </body>
-
 </html>
