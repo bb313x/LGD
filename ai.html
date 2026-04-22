@@ -183,16 +183,60 @@
             gap: 1.5rem;
         }
 
+        /* Pill-style theme toggle (sun left / moon right / sliding thumb) */
         .theme-toggle {
             background: none;
-            font-size: 1.3rem;
+            border: none;
+            padding: 0;
             cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
         }
-
-        .theme-toggle:hover {
-            opacity: 1;
+        .theme-toggle-track {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 56px;
+            height: 28px;
+            padding: 0 7px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            transition: background 0.3s ease, border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        .theme-toggle-icon {
+            font-size: 0.8rem;
+            line-height: 1;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .theme-toggle-sun { color: #fbbf24; }
+        .theme-toggle-moon { color: #c4b5fd; }
+        .theme-toggle-thumb {
+            position: absolute;
+            top: 50%;
+            left: 3px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+            transform: translateY(-50%);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        body.light-mode .theme-toggle-track {
+            background: rgba(0,0,0,0.08);
+            border-color: rgba(0,0,0,0.18);
+        }
+        body.light-mode .theme-toggle-thumb {
+            transform: translate(26px, -50%);
+            background: #1a1a1a;
+        }
+        .theme-toggle:hover .theme-toggle-track {
+            border-color: var(--purple-light, #a78bfa);
         }
 
         .nav-cta {
@@ -1636,7 +1680,13 @@
         </div>
 
         <div class="nav-right">
-            <button class="theme-toggle" id="themeToggle">☀️</button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" role="switch" aria-checked="false">
+                <span class="theme-toggle-track">
+                    <span class="theme-toggle-icon theme-toggle-sun" aria-hidden="true">☀</span>
+                    <span class="theme-toggle-icon theme-toggle-moon" aria-hidden="true">☾</span>
+                    <span class="theme-toggle-thumb" aria-hidden="true"></span>
+                </span>
+            </button>
             <button class="nav-cta" onclick="document.getElementById('demo-form').scrollIntoView({behavior:'smooth'})">Book a Demo →</button>
             <button class="hamburger" id="hamburger">
                 <span></span>
@@ -2724,20 +2774,19 @@
     <script>
         // Each block wrapped in its own IIFE + try/catch so a single failure never cascades
 
-        // Theme Toggle — standardized on lgd-theme key across site
+        // Theme Toggle — pill-style, standardized on lgd-theme key across site
         (function(){ try {
             const themeToggle = document.getElementById('themeToggle');
             const body = document.body;
             if (localStorage.getItem('lgd-theme') === 'light') {
                 body.classList.add('light-mode');
-                if (themeToggle) themeToggle.textContent = '🌙';
+                if (themeToggle) themeToggle.setAttribute('aria-checked', 'true');
             }
             if (themeToggle) {
                 themeToggle.addEventListener('click', () => {
-                    body.classList.toggle('light-mode');
-                    const isNowLight = body.classList.contains('light-mode');
+                    const isNowLight = body.classList.toggle('light-mode');
                     localStorage.setItem('lgd-theme', isNowLight ? 'light' : 'dark');
-                    themeToggle.textContent = isNowLight ? '🌙' : '☀️';
+                    themeToggle.setAttribute('aria-checked', isNowLight ? 'true' : 'false');
                 });
             }
         } catch (e) { console.error('ThemeToggle error:', e); } })();
