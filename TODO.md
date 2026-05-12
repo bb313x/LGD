@@ -32,3 +32,18 @@ Pending work that needs an external dependency before it can ship. Maintained he
 - Testimonials: "Marcus R., CEO, Legal Services Firm" and "Sophia A., Founder, eCommerce Brand"
 
 These appear on `index.html`, `agency.html`, and `ai.html`. Bryan flagged the discomfort but is checking with Kirk (more client-facing) before deciding what to keep, tighten, or anonymize.
+
+## 4. Sentry error monitoring (installed — verify after deploy)
+**Status:** Wired in, awaiting verification
+**Project:** JavaScript project on Sentry, region `us.sentry.io`
+**DSN:** `https://f3eece8ec557e6d8bf348c28d8bc5a24@o4511377116168192.ingest.us.sentry.io/4511377133076480` (public by design — embedded in all 8 page `<head>`s via the Loader Script)
+
+**To verify after this commit lands and Hostinger pulls:**
+1. Open https://letsgrowdigital.ai/ in any browser
+2. F12 → Console tab
+3. Run: `myUndefinedFunction();`
+4. Within ~30 seconds, the test error should appear in your Sentry dashboard
+
+**Then:** real visitor errors flow in automatically. Future sessions can ask Sentry MCP "any new errors in the last X hours?" once the Sentry MCP is connected.
+
+**Trial note:** Sentry is on a 14-day paid-tier trial that auto-downgrades to the free Developer tier when it ends. Don't click "Upgrade Now" unless you actually want to pay.
