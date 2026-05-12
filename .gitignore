@@ -17,3 +17,12 @@ node_modules/
 # Env / secrets
 .env
 .env.*
+
+# Working notes / internal docs (keep out of public repo)
+CLAUDE_CODE_KICKOFF_PROMPT.md
+LGD_Trillet_Design_Document_v2.md
+LGD_deskMonkey_KB_Content_v1.md
+Skool_Findings_*.md
+Turf_Boss_KB_Updates_*.md
+LUV-Health-Dispute/
+.commit-msg.txt

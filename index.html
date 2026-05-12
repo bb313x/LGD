@@ -7,23 +7,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.jpg" type="image/jpeg">
-<link rel="apple-touch-icon" href="favicon.jpg">
+<link rel="icon" href="deskmonkey-logo-T.png" type="image/png">
+<link rel="apple-touch-icon" href="deskmonkey-logo-T.png">
 <link rel="canonical" href="https://letsgrowdigital.ai/">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="shortcut icon" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="32x32" href="deskmonkey-logo-T.png">
+<link rel="icon" type="image/png" sizes="192x192" href="deskmonkey-logo-T.png">
+<link rel="apple-touch-icon" sizes="180x180" href="deskmonkey-logo-T.png">
+<link rel="shortcut icon" href="deskmonkey-logo-T.png">
 <meta name="description" content="LetsGrowDigital.ai brings AI and automation into small & medium businesses to improve operations, enhance customer engagement, and boost revenue.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://letsgrowdigital.ai/">
 <meta property="og:title" content="Lets Grow Digital — AI-Powered Growth for Small & Medium Businesses">
 <meta property="og:description" content="LetsGrowDigital.ai brings AI and automation into small & medium businesses to improve operations, enhance customer engagement, and boost revenue.">
-<meta property="og:image" content="https://letsgrowdigital.ai/og-image.jpg">
+<meta property="og:image" content="https://letsgrowdigital.ai/deskmonkey-logo-T.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lets Grow Digital — AI-Powered Growth for Small & Medium Businesses">
 <meta name="twitter:description" content="LetsGrowDigital.ai brings AI and automation into small & medium businesses to improve operations, enhance customer engagement, and boost revenue.">
-<meta name="twitter:image" content="https://letsgrowdigital.ai/og-image.jpg">
+<meta name="twitter:image" content="https://letsgrowdigital.ai/deskmonkey-logo-T.png">
 <style>
   :root {
     --purple: #6B35D9;
@@ -569,6 +569,18 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
   ::selection { background: rgba(139,85,246,0.35); color: inherit; }
   body.light-mode ::selection { background: rgba(107,53,217,0.25); color: #0A0A1A; }
 
+  /* ===== DESKMONKEY LOGO ===== */
+  .dm-logo { display: inline-block; vertical-align: middle; max-width: 100%; height: auto; }
+  .dm-logo-teaser { width: 180px; margin-bottom: 1rem; filter: drop-shadow(0 8px 20px rgba(107,53,217,0.22)); }
+  .dm-logo-section { width: 96px; margin: 0 auto 1rem; display: block; }
+  body:not(.light-mode) .dm-logo-framed {
+    background: #fff; padding: 12px; border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  }
+  @media (max-width: 768px) {
+    .dm-logo-teaser { width: 140px; }
+  }
+
   /* ===== TOP BANNER (phone/text) ===== */
   .top-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 1001; background: var(--gradient); color: #fff; font-size: 0.85rem; font-weight: 500; padding: 0.5rem 1rem; text-align: center; letter-spacing: 0.01em; }
   .top-banner a { color: #fff; text-decoration: none; font-weight: 700; }
@@ -580,7 +592,8 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
   }
 </style>
 </head>
-<body>
+<body class="light-mode">
+<script>(function(){try{if(localStorage.getItem('lgd-theme')==='dark'){document.body.classList.remove('light-mode');}}catch(e){}})();</script>
 
 <!-- ===== TOP BANNER ===== -->
 <div class="top-banner">📞 Call or Text: <a href="tel:+17324661234">732-466-1234</a></div>
@@ -593,7 +606,7 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
     </a>
 
     <ul class="nav-links">
-      <li><a href="ai.html" class="nav-ai-link">✦ AI Agent</a></li>
+      <li><a href="deskmonkey.html" class="nav-ai-link">✦ deskMonkey</a></li>
       <li><a href="agency.html">Agency</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -633,7 +646,7 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
         LetsGrowDigital.ai brings AI and automation into small & medium sized businesses to improve operations, enhance customer engagement, and boost revenue — backed by full-service digital marketing to expand your reach and sales pipeline.
       </p>
       <div class="hero-ctas">
-        <a href="ai.html" class="btn-primary">See AI Front Desk →</a>
+        <a href="deskmonkey.html" class="btn-primary">Meet deskMonkey →</a>
         <a href="agency.html" class="btn-outline">Digital Agency Services</a>
       </div>
       <div class="hero-stats">
@@ -664,12 +677,13 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
   <div class="container">
     <div class="ai-teaser-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
       <div class="fade-up">
-        <p class="overline" style="color: var(--magenta-light);">✦ New — AI Front Desk</p>
+        <img src="deskmonkey-logo-T.png" alt="deskMonkey — AI receptionist" class="dm-logo dm-logo-teaser dm-logo-framed">
+        <p class="overline" style="color: var(--magenta-light);">✦ Meet deskMonkey</p>
         <h2 class="headline" style="margin: 0.75rem 0 1rem;">Never miss a call.<br><span class="gradient-text">Never lose a lead.</span></h2>
-        <p class="subhead" style="font-size: 1rem;">An AI receptionist that answers calls & texts for your business — 24/7. Sounds like a real person. Branded to your company. <strong style="color: var(--text);">$299/mo. Live in 48 hours.</strong></p>
+        <p class="subhead" style="font-size: 1rem;">deskMonkey is the AI receptionist that answers calls & texts for your business — 24/7. Sounds like a real person. Branded to your company. <strong style="color: var(--text);">$299/mo. Live in 48 hours.</strong></p>
         <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-          <a href="ai.html" class="btn-primary">See How It Works →</a>
-          <a href="ai.html#demo-form" class="btn-outline">Book a Free Demo</a>
+          <a href="deskmonkey.html" class="btn-primary">See How It Works →</a>
+          <a href="index.html#contact" class="btn-outline">Book a Free Demo</a>
         </div>
       </div>
       <div class="fade-up stagger-2">
@@ -691,64 +705,65 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
             <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">/mo · No contracts</div>
           </div>
         </div>
-        <p style="font-size: 0.75rem; color: var(--text-dim); text-align: center; margin-top: 0.75rem;">Built for auto body shops, plumbers, HVAC techs, electricians, roofers & more</p>
+        <p style="font-size: 0.75rem; color: var(--text-dim); text-align: center; margin-top: 0.75rem;">Built for home service pros — plumbers, HVAC, electricians, roofers, auto body shops & more</p>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- ===== AUTO BODY SHOPS FEATURE ===== -->
-<section class="section" id="auto-body" style="position:relative; overflow:hidden;">
+<!-- ===== HOME SERVICE PROS + AUTO BODY FEATURE ===== -->
+<section class="section" id="home-service-pros" style="position:relative; overflow:hidden;">
   <div style="position:absolute; inset:0; z-index:0; background: radial-gradient(ellipse 60% 50% at 20% 30%, rgba(212,53,160,0.10) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 85% 70%, rgba(107,53,217,0.10) 0%, transparent 60%);"></div>
   <div class="container" style="position:relative; z-index:1;">
-    <div style="text-align:center; max-width:780px; margin:0 auto 3rem;" class="fade-up">
-      <p class="overline" style="color: var(--magenta-light);">✦ Featured Industry — Auto Body Shops</p>
-      <h2 class="headline" style="margin: 0.75rem 0 1rem;">Built for <span class="gradient-text">auto body shops</span></h2>
-      <p class="subhead" style="font-size: 1.05rem;">Customers don't pick the time their bumper meets a guard rail. They call your shop after the accident — at 9 PM, on weekends, during your lunch with the adjuster. We make sure every one of those calls turns into a booked estimate, not a voicemail.</p>
+    <div style="text-align:center; max-width:820px; margin:0 auto 3rem;" class="fade-up">
+      <img src="deskmonkey-logo-T.png" alt="" class="dm-logo dm-logo-section dm-logo-framed" aria-hidden="true">
+      <p class="overline" style="color: var(--magenta-light);">✦ Built for Home Service Pros — including Auto Body Shops</p>
+      <h2 class="headline" style="margin: 0.75rem 0 1rem;">Every call is a job. We make sure <span class="gradient-text">you book it.</span></h2>
+      <p class="subhead" style="font-size: 1.05rem;">Home service pros — plumbers, HVAC techs, electricians, roofers, auto body shops — live on inbound calls. Customers don't pick the time their pipe bursts, AC dies, or bumper meets a guard rail. They call after the emergency, at 9 PM, on weekends, during your lunch with a supplier. We make sure every one of those calls turns into a booked job, not a voicemail.</p>
     </div>
 
     <div class="grid-3" style="margin-bottom: 3rem;">
       <div class="service-card fade-up stagger-1">
-        <div class="service-card-header"><div class="service-icon">📞</div><h3>Answer every accident call — 24/7</h3></div>
-        <p>People call right after a collision. If your shop is closed or your front desk is on the line with an adjuster, those leads go to the next shop on Google. Our AI receptionist answers instantly, captures the claim details, and books the estimate.</p>
-        <span class="service-tag ai-badge" style="background:none;padding:0;">✦ AI Front Desk</span>
+        <div class="service-card-header"><div class="service-icon">📞</div><h3>Answer every emergency call — 24/7</h3></div>
+        <p>Pipe bursts. AC quits. Customer rear-ends a guardrail. If your shop is closed or your front desk is on another line, those leads go to the next pro on Google. deskMonkey answers instantly, captures the job details, and books the appointment.</p>
+        <span class="service-tag ai-badge" style="background:none;padding:0;">✦ deskMonkey</span>
       </div>
 
       <div class="service-card fade-up stagger-2">
-        <div class="service-card-header"><div class="service-icon">🛡️</div><h3>Insurance & claim intake</h3></div>
-        <p>Captures insurance carrier, claim number, deductible, and vehicle info on the first call — so the estimate appointment is productive instead of a 20-minute intake conversation. Your team gets the lead pre-qualified.</p>
+        <div class="service-card-header"><div class="service-icon">🛡️</div><h3>Job intake — insurance or direct-pay</h3></div>
+        <p>For auto body: captures carrier, claim number, deductible, year/make/model. For home services: pre-qualifies scope, urgency, and address. Your estimate or service call appointment is productive — not a 20-minute intake conversation.</p>
         <span class="service-tag">Lead Intake</span>
       </div>
 
       <div class="service-card fade-up stagger-3">
-        <div class="service-card-header"><div class="service-icon">🚗</div><h3>"Is my car done?" — handled</h3></div>
-        <p>Status update calls eat your day. The AI pulls the live job status, sends a text update, and only escalates to your team when the customer actually needs a human. Your estimators stay focused on writing work.</p>
+        <div class="service-card-header"><div class="service-icon">🚗</div><h3>"Is my job done?" — handled</h3></div>
+        <p>Status update calls eat your day. The AI pulls the live job status, sends a text update, and only escalates when the customer actually needs a human. Your techs and estimators stay focused on the work in front of them.</p>
         <span class="service-tag">Retention</span>
       </div>
 
       <div class="service-card fade-up stagger-1">
-        <div class="service-card-header"><div class="service-icon">⭐</div><h3>Reviews that win the next claim</h3></div>
-        <p>After delivery, we automatically request a Google review from happy customers. More 5-star reviews = more direct-pay and insurance-referred jobs. Reputation Management compounds month over month.</p>
+        <div class="service-card-header"><div class="service-icon">⭐</div><h3>Reviews that win the next job</h3></div>
+        <p>After every completed job, we automatically request a Google review from happy customers. More 5-star reviews = more direct-pay, insurance-referred, and "near me" jobs. Reputation compounds month over month.</p>
         <span class="service-tag">Brand Trust</span>
       </div>
 
       <div class="service-card fade-up stagger-2">
         <div class="service-card-header"><div class="service-icon">💰</div><h3>Local Service Ads + Google Maps</h3></div>
-        <p>We get your shop on the Google "near me" map pack, run Local Service Ads that charge per qualified lead (not per click), and make sure DRP and direct-pay customers find you before the chain shops.</p>
+        <p>We get your shop on the Google "near me" map pack, run Local Service Ads that charge per qualified lead (not per click), and make sure customers find you before the chain shops and national brands.</p>
         <span class="service-tag">Paid Media</span>
       </div>
 
       <div class="service-card fade-up stagger-3">
         <div class="service-card-header"><div class="service-icon">📊</div><h3>From first call to final invoice</h3></div>
-        <p>CRM and lead management that tracks every claim from the inquiry call to estimate, repair authorization, and final invoice — replacing the whiteboard, sticky notes, and missed follow-ups. No more leads slipping through.</p>
+        <p>CRM and lead management that tracks every job from the inquiry call to estimate, work order, repair authorization, and final invoice — replacing the whiteboard, sticky notes, and missed follow-ups. No more leads slipping through.</p>
         <span class="service-tag">Growth Ops</span>
       </div>
     </div>
 
     <div style="text-align:center;" class="fade-up">
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a href="ai.html" class="btn-primary">See the AI Receptionist →</a>
+        <a href="deskmonkey.html" class="btn-primary">Meet deskMonkey →</a>
         <a href="tel:+17324661234" class="btn-outline">📞 Call or Text Us: 732-466-1234</a>
       </div>
       <p style="font-size:0.8rem; color:var(--text-dim); margin-top:1rem;">$299/mo · Live in 48 hours · No contracts</p>
@@ -896,6 +911,7 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
         <div style="background: var(--dark-3); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
           <p class="overline" style="margin-bottom: 1rem;">Industries We Serve</p>
           <div class="industries-grid">
+            <span class="industry-tag" style="background: var(--gradient); color: white; border-color: transparent;">★ Home Service Pros</span>
             <span class="industry-tag" style="background: var(--gradient); color: white; border-color: transparent;">★ Auto Body Shops</span>
             <span class="industry-tag">Medical</span>
             <span class="industry-tag">Health & Wellness</span>
@@ -1067,24 +1083,24 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
           <h3 style="font-size:1.25rem; font-weight:600; margin-bottom:1.75rem;">Sign Up</h3>
           <form class="contact-form" onsubmit="handleSubmit(event)">
             <div class="form-group">
-              <label>Name *</label>
-              <input type="text" placeholder="John Smith" required>
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" placeholder="John Smith" required>
             </div>
             <div class="form-group">
-              <label>Email *</label>
-              <input type="email" placeholder="john@yourbusiness.com" required>
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="john@yourbusiness.com" required>
             </div>
             <div class="form-group">
-              <label>Phone *</label>
-              <input type="tel" placeholder="(555) 123-4567" required>
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
             </div>
             <div class="form-group">
-              <label>Company Name</label>
-              <input type="text" placeholder="Acme Corp">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" placeholder="Acme Corp">
             </div>
             <div class="form-group">
-              <label>Primary Goal</label>
-              <select>
+              <label for="goal">Primary Goal</label>
+              <select id="goal" name="goal">
                 <option value="">Select your biggest priority...</option>
                 <option>More leads / inquiries</option>
                 <option>Better ROAS on paid ads</option>
@@ -1096,8 +1112,8 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
               </select>
             </div>
             <div class="form-group">
-              <label>Monthly Marketing Budget</label>
-              <select>
+              <label for="budget">Monthly Marketing Budget</label>
+              <select id="budget" name="budget">
                 <option value="">Select your budget range...</option>
                 <option>Under $1,000/mo</option>
                 <option>$1,000 – $5,000/mo</option>
@@ -1106,8 +1122,8 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
               </select>
             </div>
             <div class="form-group">
-              <label>Tell us about your business (optional)</label>
-              <textarea placeholder="What do you do, who are your customers, what's your biggest marketing challenge?"></textarea>
+              <label for="message">Tell us about your business (optional)</label>
+              <textarea id="message" name="message" placeholder="What do you do, who are your customers, what's your biggest marketing challenge?"></textarea>
             </div>
             <div class="form-group" style="flex-direction:row; align-items:flex-start; gap:0.6rem;">
               <input type="checkbox" id="sms_optin" name="sms_optin" required style="margin-top:0.25rem; flex-shrink:0; width:18px; height:18px; accent-color: var(--magenta); cursor:pointer;">
@@ -1154,7 +1170,7 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
       <div class="footer-col">
         <h4>Services</h4>
         <ul class="footer-links">
-          <li><a href="ai.html">AI Front Desk</a></li>
+          <li><a href="deskmonkey.html">deskMonkey</a></li>
           <li><a href="agency.html#services">SEO & GEO</a></li>
           <li><a href="agency.html#services">Paid Media</a></li>
           <li><a href="agency.html#services">Meta & Social Ads</a></li>
@@ -1180,7 +1196,8 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
       <div class="footer-col">
         <h4>Industries</h4>
         <ul class="footer-links">
-          <li><a href="#auto-body"><strong style="color:var(--magenta-light);">★ Auto Body Shops</strong></a></li>
+          <li><a href="#home-service-pros"><strong style="color:var(--magenta-light);">★ Home Service Pros</strong></a></li>
+          <li><a href="#home-service-pros"><strong style="color:var(--magenta-light);">★ Auto Body Shops</strong></a></li>
           <li><a href="agency.html#who-we-help">Medical & Health</a></li>
           <li><a href="agency.html#who-we-help">Legal Services</a></li>
           <li><a href="agency.html#who-we-help">Professional Services</a></li>
@@ -1218,8 +1235,8 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
     const btn = e.target.querySelector('button[type=submit]');
     const originalText = btn.textContent;
 
-    // SMS opt-in validation: if a phone number is provided, explicit consent is required (TCPA / A2P 10DLC)
-    const phoneVal = (e.target.querySelector('input[type="tel"]')?.value || '').trim();
+    const f = new FormData(e.target);
+    const phoneVal = (f.get('phone') || '').toString().trim();
     const smsCheckbox = e.target.querySelector('#sms_optin');
     if (phoneVal && smsCheckbox && !smsCheckbox.checked) {
       btn.textContent = '✗ Please confirm SMS consent above';
@@ -1236,27 +1253,18 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    // Find the Monthly Marketing Budget select by looking for the label that contains the text
-    let budgetValue = '';
-    const labels = e.target.querySelectorAll('label');
-    for (let label of labels) {
-      if (label.textContent.includes('Monthly Marketing Budget')) {
-        const select = label.nextElementSibling;
-        if (select?.tagName === 'SELECT') {
-          budgetValue = select.options[select.selectedIndex]?.text || '';
-        }
-        break;
-      }
-    }
+    const budgetSelect = e.target.querySelector('select[name="budget"]');
+    const budgetValue = budgetSelect ? (budgetSelect.options[budgetSelect.selectedIndex]?.text || '') : '';
 
     const smsOptedIn = !!(smsCheckbox && smsCheckbox.checked);
     const payload = {
-      name: e.target.querySelector('input[placeholder*="John Smith"]')?.value || '',
-      email: e.target.querySelector('input[type="email"]')?.value || '',
+      name: (f.get('name') || '').toString(),
+      email: (f.get('email') || '').toString(),
       phone: phoneVal,
-      company: e.target.querySelector('input[placeholder*="Acme Corp"]')?.value || '',
-      message: e.target.querySelector('textarea')?.value || '',
+      company: (f.get('company') || '').toString(),
+      message: (f.get('message') || '').toString(),
       budget: budgetValue,
+      goal: (f.get('goal') || '').toString(),
       source: 'Lets Grow Digital Website',
       entryPoint: 'Contact Form',
       sms_optin: smsOptedIn,
