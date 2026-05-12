@@ -7,23 +7,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.jpg" type="image/jpeg">
-<link rel="apple-touch-icon" href="favicon.jpg">
+<link rel="icon" href="deskmonkey-logo-T.png" type="image/png">
+<link rel="apple-touch-icon" href="deskmonkey-logo-T.png">
 <link rel="canonical" href="https://letsgrowdigital.ai/deskmonkey.html">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="shortcut icon" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="32x32" href="deskmonkey-logo-T.png">
+<link rel="icon" type="image/png" sizes="192x192" href="deskmonkey-logo-T.png">
+<link rel="apple-touch-icon" sizes="180x180" href="deskmonkey-logo-T.png">
+<link rel="shortcut icon" href="deskmonkey-logo-T.png">
 <meta name="description" content="deskMonkey is a 24/7 AI receptionist that answers every call, books appointments, and texts follow-ups in your brand voice. $299/mo. Live in 48 hours. 30-day guarantee.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://letsgrowdigital.ai/deskmonkey.html">
 <meta property="og:title" content="deskMonkey — 24/7 AI Receptionist for Local Business">
 <meta property="og:description" content="Never miss a call. Never lose a lead. Auto body, home services, medical, legal — $299/mo, month-to-month, 30-day guarantee.">
-<meta property="og:image" content="https://letsgrowdigital.ai/og-image.jpg">
+<meta property="og:image" content="https://letsgrowdigital.ai/deskmonkey-logo-T.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="deskMonkey — 24/7 AI Receptionist">
 <meta name="twitter:description" content="Never miss a call. Never lose a lead. $299/mo. Live in 48 hours.">
-<meta name="twitter:image" content="https://letsgrowdigital.ai/og-image.jpg">
+<meta name="twitter:image" content="https://letsgrowdigital.ai/deskmonkey-logo-T.png">
 <style>
   :root {
     --purple: #6B35D9;
@@ -382,9 +382,24 @@
   }
 
   .site-logo { height: 38px; width: auto; display: block; }
+
+  /* ===== DESKMONKEY LOGO ===== */
+  .dm-logo { display: inline-block; vertical-align: middle; max-width: 100%; height: auto; }
+  .dm-logo-hero { width: 300px; max-width: 60vw; margin-bottom: 1.5rem; filter: drop-shadow(0 12px 32px rgba(107,53,217,0.25)); }
+  .dm-logo-nav { width: 22px; height: 22px; vertical-align: middle; margin-right: 0.35rem; }
+  .dm-logo-accent { width: 64px; height: 64px; }
+  /* Dark-mode framing — gives the transparent PNG a card so the dark monkey body has contrast */
+  body:not(.light-mode) .dm-logo-framed {
+    background: #fff; padding: 14px; border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  }
+  @media (max-width: 768px) {
+    .dm-logo-hero { width: 220px; margin: 0 auto 1.25rem; display: block; }
+  }
 </style>
 </head>
-<body>
+<body class="light-mode">
+<script>(function(){try{if(localStorage.getItem('lgd-theme')==='dark'){document.body.classList.remove('light-mode');}}catch(e){}})();</script>
 
 <!-- ===== TOP BANNER ===== -->
 <div class="top-banner">📞 Call or Text: <a href="tel:+17324661234">732-466-1234</a></div>
@@ -397,8 +412,7 @@
     </a>
 
     <ul class="nav-links">
-      <li><a href="deskmonkey.html" class="nav-ai-link">✦ deskMonkey</a></li>
-      <li><a href="ai.html">AI Agent</a></li>
+      <li><a href="deskmonkey.html" class="nav-ai-link"><img src="deskmonkey-logo-T.png" alt="" class="dm-logo-nav" aria-hidden="true">deskMonkey</a></li>
       <li><a href="agency.html">Agency</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="index.html#contact">Contact</a></li>
@@ -424,12 +438,13 @@
   <div class="hero-grid-lines"></div>
   <div class="container">
     <div class="hero-content">
+      <img src="deskmonkey-logo-T.png" alt="deskMonkey — AI receptionist for home service pros and auto body shops" class="dm-logo dm-logo-hero dm-logo-framed">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
         ✦ 24/7 AI Receptionist · Live in 48 hours
       </div>
       <h1 class="display">
-        <span class="gradient-text">deskMonkey</span><br>
+        <span class="gradient-text">deskMonkey:</span><br>
         Never miss a call.<br>
         Never lose a lead.
       </h1>
@@ -846,6 +861,10 @@
       <div class="footer-brand">
         <img src="logo.png" alt="Lets Grow Digital" style="height:48px; width:auto; display:block; margin-bottom:16px;">
         <p>Full-service digital marketing built for ambitious businesses. AI-first. Results-focused. Obsessively transparent.</p>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin:1rem 0;">
+          <img src="deskmonkey-logo-T.png" alt="" aria-hidden="true" style="width:36px; height:36px;">
+          <span style="font-size:0.8rem; color:var(--text-muted);">deskMonkey is a product of Lets Grow Digital</span>
+        </div>
         <div class="footer-social">
           <a href="#" class="social-icon">fb</a>
           <a href="#" class="social-icon">ig</a>
@@ -856,7 +875,7 @@
         <h4>Product</h4>
         <ul class="footer-links">
           <li><a href="deskmonkey.html"><strong style="color:var(--magenta-light);">★ deskMonkey</strong></a></li>
-          <li><a href="ai.html">AI Agent</a></li>
+          <li><a href="deskmonkey.html">deskMonkey</a></li>
           <li><a href="agency.html#services">SEO &amp; GEO</a></li>
           <li><a href="agency.html#services">Paid Media</a></li>
           <li><a href="agency.html#services">Meta &amp; Social Ads</a></li>

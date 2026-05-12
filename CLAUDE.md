@@ -31,10 +31,11 @@ Marketing website for Lets Grow Digital, an AI-powered digital marketing agency 
 - **API token is NEVER in client-side code** — always in Worker environment
 
 ## Deployment Workflow
-1. Edit the relevant live page(s) locally (`index.html`, `ai.html`, etc.)
-2. Commit and push to GitHub
-3. Deploy manually via Hostinger hPanel
-4. Cloudflare Worker handles lead/newsletter submissions independently
+1. Edit the relevant live page(s) locally (`index.html`, `deskmonkey.html`, etc.)
+2. Commit and push to `main` on GitHub
+3. **Hostinger auto-pulls from Git** — site updates within a minute or two of push. No manual hPanel upload.
+4. Hard-refresh (Ctrl+Shift+R) to bust browser cache and confirm
+5. Cloudflare Worker handles lead/newsletter submissions independently of deploy
 
 ## Coding Conventions
 - Single-file architecture is intentional — do not split into separate CSS/JS files
