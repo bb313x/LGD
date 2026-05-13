@@ -177,7 +177,9 @@ export default {
     const columnValuesRaw = {
       lead_email:           { email: email, text: email },
       lead_company:         company || undefined,
-      lead_phone:           phone ? { phone: phone, countryShortName: 'US' } : undefined,
+      // Monday's phone column rejects formatted strings (parens, spaces, dashes).
+      // Strip all non-digit characters so "(732) 555-0001" becomes "7325550001".
+      lead_phone:           phone ? { phone: String(phone).replace(/\D/g, ''), countryShortName: 'US' } : undefined,
       color_mkyb8krc:       { label: detectedSource },                     // Lead Source (status)
       long_text_mm226ey8:   descriptionText ? { text: descriptionText } : undefined,
     };
