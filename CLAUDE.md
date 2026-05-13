@@ -43,6 +43,9 @@ Marketing website for Lets Grow Digital, an AI-powered digital marketing agency 
 - No npm, no node_modules, no build step
 - Sparse comments — only where non-obvious
 
+## Light/Dark Mode — Contrast Rule
+Never hardcode a color or background value on any element whose sibling property (background or color) uses a theme-flipping CSS variable (`--text`, `--text-muted`, `--text-dim`, `--dark`, `--dark-2`, `--dark-3`, `--dark-4`, `--border`). If a hardcoded value is unavoidable (e.g., the nav bar's translucent backdrop, hamburger bars, mobile menu sheet), you MUST pair it with a `body.light-mode` override so the foreground and background can never collapse to the same color. Before pushing any change that touches nav, menus, cards, modals, form inputs, or anything with a background fill, test both modes by toggling the pill switch. Reference patterns: `deskmonkey.html` and `ai-solutions.html` mobile menus do this correctly.
+
 ## Open Work Items
 See `TODO.md` in this repo for pending items that are blocked on external dependencies (Trillet widget snippet, OG social cards, stats/testimonial review). Check it at the start of each session and update as items unblock or new ones appear.
 
