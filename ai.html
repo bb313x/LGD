@@ -164,10 +164,10 @@
         .nav-icon-svg { width: 18px; height: 18px; flex-shrink: 0; }
         .nav-stack-label { display: inline-block; text-align: center; line-height: 1.05; }
         /* deskMonkey logo theme-swap: white-BG in light mode, black-BG in dark mode */
-        .dm-light-only { display: inline-block; }
-        .dm-dark-only { display: none; }
-        body:not(.light-mode) .dm-light-only { display: none; }
-        body:not(.light-mode) .dm-dark-only { display: inline-block; }
+        .dm-light-only { display: inline-block !important; }
+        .dm-dark-only { display: none !important; }
+        body:not(.light-mode) .dm-light-only { display: none !important; }
+        body:not(.light-mode) .dm-dark-only { display: inline-block !important; }
 
         .nav-links {
             display: flex;

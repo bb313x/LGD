@@ -111,10 +111,10 @@
   .nav-icon-svg { width: 18px; height: 18px; flex-shrink: 0; }
   .nav-stack-label { display: inline-block; text-align: center; line-height: 1.05; }
   /* deskMonkey logo theme-swap: white-BG in light mode, black-BG in dark mode */
-  .dm-light-only { display: inline-block; }
-  .dm-dark-only { display: none; }
-  body:not(.light-mode) .dm-light-only { display: none; }
-  body:not(.light-mode) .dm-dark-only { display: inline-block; }
+  .dm-light-only { display: inline-block !important; }
+  .dm-dark-only { display: none !important; }
+  body:not(.light-mode) .dm-light-only { display: none !important; }
+  body:not(.light-mode) .dm-dark-only { display: inline-block !important; }
   .nav-cta { background: var(--gradient); color: white; border: none; padding: 0.6rem 1.4rem; border-radius: 100px; font-family: var(--font-sans); font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: opacity 0.2s, transform 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; margin-left: 0.5rem; }
   .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }

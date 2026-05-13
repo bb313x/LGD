@@ -95,10 +95,10 @@
   .nav-icon-svg { width: 18px; height: 18px; flex-shrink: 0; }
   .nav-stack-label { display: inline-block; text-align: center; line-height: 1.05; }
   /* deskMonkey logo theme-swap: white-BG in light mode, black-BG in dark mode */
-  .dm-light-only { display: inline-block; }
-  .dm-dark-only { display: none; }
-  body:not(.light-mode) .dm-light-only { display: none; }
-  body:not(.light-mode) .dm-dark-only { display: inline-block; }
+  .dm-light-only { display: inline-block !important; }
+  .dm-dark-only { display: none !important; }
+  body:not(.light-mode) .dm-light-only { display: none !important; }
+  body:not(.light-mode) .dm-dark-only { display: inline-block !important; }
   /* Pill-style theme toggle */
   .theme-toggle { background: none; border: none; padding: 0; margin-left: 0.75rem; cursor: pointer; display: inline-flex; align-items: center; line-height: 1; }
   .theme-toggle-track { position: relative; display: inline-flex; align-items: center; justify-content: space-between; width: 56px; height: 28px; padding: 0 7px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); transition: background 0.3s ease, border-color 0.3s ease; box-sizing: border-box; }
