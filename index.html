@@ -590,6 +590,14 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
   .dm-logo { display: inline-block; vertical-align: middle; max-width: 100%; height: auto; }
   .dm-logo-teaser { width: 280px; margin-bottom: 1rem; filter: drop-shadow(0 8px 20px rgba(107,53,217,0.22)); }
   .dm-logo-section { width: 180px; margin: 0 auto 1rem; display: block; }
+  /* Inline icon-next-to-headline layout for the AI Teaser section (mirrors deskmonkey.html hero) */
+  .ai-teaser-row { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 0.75rem; }
+  .ai-teaser-row > div { flex: 1; min-width: 0; }
+  .dm-teaser-icon { width: 130px; height: auto; flex-shrink: 0; filter: drop-shadow(0 8px 20px rgba(107,53,217,0.22)); }
+  @media (max-width: 768px) {
+    .ai-teaser-row { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .dm-teaser-icon { width: 100px; }
+  }
   @media (max-width: 768px) {
     .dm-logo-teaser { width: 200px; }
     .dm-logo-section { width: 140px; }
@@ -665,24 +673,6 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
         <a href="ai-solutions.html" class="btn-outline">AI Solutions</a>
         <a href="agency.html" class="btn-outline">Marketing Agency Services</a>
       </div>
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num">500+</div>
-          <div class="hero-stat-label">Businesses Grown</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">24/7</div>
-          <div class="hero-stat-label">AI Always On</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">AI-First</div>
-          <div class="hero-stat-label">Strategy & Execution</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">48h</div>
-          <div class="hero-stat-label">Live in 48 Hours</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -693,10 +683,14 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
   <div class="container">
     <div class="ai-teaser-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
       <div class="fade-up">
-        <img src="deskMonkey_v3-white-icon.png" alt="deskMonkey — AI receptionist" class="dm-logo dm-logo-teaser dm-light-only"><img src="deskMonkey_v3-black-icon.png" alt="" class="dm-logo dm-logo-teaser dm-dark-only" aria-hidden="true">
-        <p class="overline" style="color: var(--magenta-light);">✦ Meet deskMonkey</p>
-        <h2 class="headline" style="margin: 0.75rem 0 1rem;">Never miss a call.<br><span class="gradient-text">Never lose a lead.</span></h2>
-        <p class="subhead" style="font-size: 1rem;">deskMonkey is the AI receptionist that answers calls & texts for your business — 24/7. Sounds like a real person. Branded to your company. <strong style="color: var(--text);">$299/mo. Live in 48 hours.</strong></p>
+        <div class="ai-teaser-row">
+          <img src="deskMonkey_v3-white-icon.png" alt="deskMonkey — AI receptionist" class="dm-teaser-icon dm-light-only"><img src="deskMonkey_v3-black-icon.png" alt="" class="dm-teaser-icon dm-dark-only" aria-hidden="true">
+          <div>
+            <p class="overline" style="color: var(--magenta-light); margin-bottom: 0.5rem;">✦ Meet deskMonkey</p>
+            <h2 class="headline" style="margin: 0;">Never miss a call.<br><span class="gradient-text">Never lose a lead.</span></h2>
+          </div>
+        </div>
+        <p class="subhead" style="font-size: 1rem;">deskMonkey is the AI receptionist that answers calls & texts for your business — 24/7. Sounds like a real person. Branded to your company. <strong style="color: var(--text);">From $299/mo. Live in 48 hours.</strong></p>
         <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
           <a href="deskmonkey.html" class="btn-primary">See How It Works →</a>
           <a href="index.html#contact" class="btn-outline">Book a Free Demo</a>
@@ -733,7 +727,6 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
   <div style="position:absolute; inset:0; z-index:0; background: radial-gradient(ellipse 60% 50% at 20% 30%, rgba(212,53,160,0.10) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 85% 70%, rgba(107,53,217,0.10) 0%, transparent 60%);"></div>
   <div class="container" style="position:relative; z-index:1;">
     <div style="text-align:center; max-width:820px; margin:0 auto 3rem;" class="fade-up">
-      <img src="deskMonkey_v3-white-icon.png" alt="" class="dm-logo dm-logo-section dm-light-only" aria-hidden="true"><img src="deskMonkey_v3-black-icon.png" alt="" class="dm-logo dm-logo-section dm-dark-only" aria-hidden="true">
       <p class="overline" style="color: var(--magenta-light);">✦ Built for Home Service Pros — including Auto Body Shops</p>
       <h2 class="headline" style="margin: 0.75rem 0 1rem;">Every call is a job. We make sure <span class="gradient-text">you book it.</span></h2>
       <p class="subhead" style="font-size: 1.05rem;">Home service pros — plumbers, HVAC techs, electricians, roofers, auto body shops — live on inbound calls. Customers don't pick the time their pipe bursts, AC dies, or bumper meets a guard rail. They call after the emergency, at 9 PM, on weekends, during your lunch with a supplier. We make sure every one of those calls turns into a booked job, not a voicemail.</p>
@@ -850,33 +843,6 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
         <div class="service-card-header"><div class="service-icon">⭐</div><h3>Reputation Management</h3></div>
         <p>Protect and amplify your brand reputation. We monitor, respond, and build the social proof that turns prospects into confident buyers.</p>
         <span class="service-tag">Brand Trust</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="glow-divider"></div>
-
-
-<!-- ===== METRICS ===== -->
-<section class="section-sm">
-  <div class="container">
-    <div class="metrics-strip fade-up">
-      <div>
-        <div class="metric-val">3.8×</div>
-        <div class="metric-label">Average ROAS Delivered</div>
-      </div>
-      <div>
-        <div class="metric-val">500+</div>
-        <div class="metric-label">Businesses Scaled</div>
-      </div>
-      <div>
-        <div class="metric-val">94%</div>
-        <div class="metric-label">Client Retention Rate</div>
-      </div>
-      <div>
-        <div class="metric-val">24h</div>
-        <div class="metric-label">Avg. Response Time</div>
       </div>
     </div>
   </div>
