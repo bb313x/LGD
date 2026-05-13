@@ -386,8 +386,6 @@
   .site-logo { height: 38px; width: auto; display: block; }
 
   /* ===== DESKMONKEY LOGO ===== */
-  .dm-logo { display: inline-block; vertical-align: middle; max-width: 100%; height: auto; }
-  .dm-logo-hero { width: 300px; max-width: 60vw; margin-bottom: 1.5rem; filter: drop-shadow(0 12px 32px rgba(107,53,217,0.25)); }
   /* Compact cropped icon — sits inline next to the hero headline */
   .hero-headline-row { display: flex; align-items: center; gap: 1.75rem; margin-bottom: 1.5rem; }
   .hero-headline-row h1 { margin: 0; flex: 1; min-width: 0; }
@@ -410,17 +408,13 @@
   .dm-dark-only { display: none !important; }
   body:not(.light-mode) .dm-light-only { display: none !important; }
   body:not(.light-mode) .dm-dark-only { display: inline-block !important; }
-  /* Dark-mode framing — gives the transparent PNG a card so the dark monkey body has contrast */
-  /* .dm-logo-framed dark-mode card no longer needed — black-BG logo variant provides its own contrast */
-  @media (max-width: 768px) {
-    .dm-logo-hero { width: 220px; margin: 0 auto 1.25rem; display: block; }
-  }
 
   /* ===== PRICING TIERS (matches agency.html pkg-* styling) ===== */
   .packages-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
   .pkg-card { background: var(--dark-3); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem 2rem; position: relative; display: flex; flex-direction: column; }
   .pkg-card.featured { border-color: var(--purple-light); background: linear-gradient(135deg, rgba(107,53,217,0.10), rgba(212,53,160,0.10)); }
   .pkg-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gradient); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.3rem 1rem; border-radius: 50px; white-space: nowrap; letter-spacing: 0.06em; text-transform: uppercase; }
+  .pkg-bananas { font-size: 1.5rem; line-height: 1; margin-bottom: 0.6rem; letter-spacing: 0.05em; user-select: none; }
   .pkg-name { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem; }
   .pkg-price { font-size: 2.75rem; font-weight: 800; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
   .pkg-period { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
@@ -479,7 +473,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        ✦ 24/7 AI Receptionist · Live in 48 hours
+        ✦ 24/7 AI Receptionist · Live in 48 hours · 🍌
       </div>
       <div class="hero-headline-row">
         <img src="deskMonkey_v3-white-icon.png" alt="" class="dm-icon-hero dm-light-only" aria-hidden="true"><img src="deskMonkey_v3-black-icon.png" alt="" class="dm-icon-hero dm-dark-only" aria-hidden="true">
@@ -746,20 +740,21 @@
 <section class="section" id="pricing">
   <div class="container">
     <div style="text-align:center; max-width:820px; margin:0 auto 3.5rem;" class="fade-up">
-      <p class="overline">Pricing</p>
+      <p class="overline">🍌 Pricing</p>
       <h2 class="headline" style="margin: 0.75rem 0 1rem;">Three tiers, <span class="gradient-text">priced by call volume.</span></h2>
       <p class="subhead" style="font-size:1rem;">Pick the plan that matches how busy your phones get. Every tier includes setup, brand-voice training, and live-in-48-hours onboarding. Upgrade or downgrade as your volume changes.</p>
     </div>
     <div class="packages-grid">
 
-      <!-- Starter -->
+      <!-- Banana (Starter) -->
       <div class="pkg-card fade-up stagger-1">
-        <div class="pkg-name">Starter</div>
+        <div class="pkg-bananas" aria-hidden="true">🍌</div>
+        <div class="pkg-name">Banana</div>
         <div class="pkg-price">$299<span class="pkg-period">/mo</span></div>
         <div class="pkg-desc">Just the basics, done right. Perfect for solo operators and lower-volume shops.</div>
         <ul class="pkg-features">
           <li><strong style="color:var(--text)">250 minutes</strong> / month included</li>
-          <li>$0.40 per extra minute</li>
+          <li>$0.30 per extra minute</li>
           <li><strong style="color:var(--text)">1 channel:</strong> Voice <em style="color:var(--text-dim)">or</em> Web Chat</li>
           <li>Email support · 24-hour response</li>
           <li>Calendar booking + appointment confirmations</li>
@@ -769,15 +764,16 @@
         <a href="index.html#contact" class="btn-outline" style="width:100%;justify-content:center;">Get Started</a>
       </div>
 
-      <!-- Growth (featured) -->
+      <!-- Monkey Business (Growth, featured) -->
       <div class="pkg-card featured fade-up stagger-2">
         <div class="pkg-badge">Most Popular</div>
-        <div class="pkg-name">Growth</div>
+        <div class="pkg-bananas" aria-hidden="true">🍌🍌</div>
+        <div class="pkg-name">Monkey Business</div>
         <div class="pkg-price">$499<span class="pkg-period">/mo</span></div>
         <div class="pkg-desc">Sweet spot for most local businesses running real marketing and after-hours coverage.</div>
         <ul class="pkg-features">
           <li><strong style="color:var(--text)">750 minutes</strong> / month included</li>
-          <li>$0.30 per extra minute <em style="color:var(--purple-light)">(25% lower rate)</em></li>
+          <li>$0.23 per extra minute <em style="color:var(--purple-light)">(23% lower rate)</em></li>
           <li><strong style="color:var(--text)">3 channels</strong> — pick from Voice, SMS, Web Chat, Web Voice Bot, WhatsApp, Facebook</li>
           <li>Phone + email support · business hours</li>
           <li>After-hours + weekend coverage</li>
@@ -788,14 +784,15 @@
         <a href="index.html#contact" class="btn-primary" style="width:100%;justify-content:center;">Get Started →</a>
       </div>
 
-      <!-- Pro -->
+      <!-- Top Banana (Pro) -->
       <div class="pkg-card fade-up stagger-3">
-        <div class="pkg-name">Pro</div>
+        <div class="pkg-bananas" aria-hidden="true">🍌🍌🍌</div>
+        <div class="pkg-name">Top Banana</div>
         <div class="pkg-price">$999<span class="pkg-period">/mo</span></div>
         <div class="pkg-desc">Full-stack for high-volume operators, multi-location businesses, and ad-driven shops.</div>
         <ul class="pkg-features">
           <li><strong style="color:var(--text)">2,000 minutes</strong> / month included</li>
-          <li>$0.18 per extra minute <em style="color:var(--purple-light)">(55% lower rate)</em></li>
+          <li>$0.15 per extra minute <em style="color:var(--purple-light)">(50% lower rate)</em></li>
           <li><strong style="color:var(--text)">All 6 channels:</strong> Voice + SMS + WhatsApp + Facebook + Web Voice Bot + Web Chat Bot</li>
           <li>Dedicated account rep + priority support</li>
           <li>Multi-location / multi-business support</li>
@@ -820,7 +817,7 @@
 <section class="section">
   <div class="container">
     <div style="text-align:center; max-width:780px; margin:0 auto 3rem;" class="fade-up">
-      <p class="overline">FAQ</p>
+      <p class="overline">🍌 FAQ</p>
       <h2 class="headline" style="margin: 0.75rem 0 1rem;">Questions <span class="gradient-text">worth answering.</span></h2>
     </div>
 
