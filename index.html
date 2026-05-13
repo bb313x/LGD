@@ -160,10 +160,11 @@ body.light-mode .theme-toggle-thumb { transform: translate(26px, -50%); backgrou
   .nav-icon-svg { width: 18px; height: 18px; flex-shrink: 0; }
   .nav-stack-label { display: inline-block; text-align: center; line-height: 1.05; }
   /* deskMonkey logo theme-swap: white-BG in light mode, black-BG in dark mode */
-  .dm-light-only { display: inline-block; }
-  .dm-dark-only { display: none; }
-  body:not(.light-mode) .dm-light-only { display: none; }
-  body:not(.light-mode) .dm-dark-only { display: inline-block; }
+  /* !important required because .dm-logo (defined later) sets display:inline-block at same specificity */
+  .dm-light-only { display: inline-block !important; }
+  .dm-dark-only { display: none !important; }
+  body:not(.light-mode) .dm-light-only { display: none !important; }
+  body:not(.light-mode) .dm-dark-only { display: inline-block !important; }
 
 
   /* ===== HERO ===== */

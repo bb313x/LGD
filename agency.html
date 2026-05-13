@@ -74,10 +74,10 @@
   .nav-icon-svg { width: 18px; height: 18px; flex-shrink: 0; }
   .nav-stack-label { display: inline-block; text-align: center; line-height: 1.05; }
   /* deskMonkey logo theme-swap: white-BG in light mode, black-BG in dark mode */
-  .dm-light-only { display: inline-block; }
-  .dm-dark-only { display: none; }
-  body:not(.light-mode) .dm-light-only { display: none; }
-  body:not(.light-mode) .dm-dark-only { display: inline-block; }
+  .dm-light-only { display: inline-block !important; }
+  .dm-dark-only { display: none !important; }
+  body:not(.light-mode) .dm-light-only { display: none !important; }
+  body:not(.light-mode) .dm-dark-only { display: inline-block !important; }
   .nav-right { display: flex; align-items: center; gap: 0.75rem; }
   .nav-cta { background: var(--gradient); color: white; text-decoration: none; padding: 0.6rem 1.25rem; border-radius: 10px; font-size: 0.875rem; font-weight: 600; transition: opacity 0.2s; }
   .nav-cta:hover { opacity: 0.85; }

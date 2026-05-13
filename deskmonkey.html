@@ -16,7 +16,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="shortcut icon" href="favicon-32.png">
-<meta name="description" content="deskMonkey is a 24/7 AI receptionist that answers every call, books appointments, and texts follow-ups in your brand voice. $299/mo. Live in 48 hours.">
+<meta name="description" content="deskMonkey is a 24/7 AI receptionist that answers every call, books appointments, and texts follow-ups in your brand voice. From $299/mo. Live in 48 hours.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://letsgrowdigital.ai/deskmonkey.html">
 <meta property="og:title" content="deskMonkey — 24/7 AI Receptionist for Local Business">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://letsgrowdigital.ai/deskmonkey-logo-T.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="deskMonkey — 24/7 AI Receptionist">
-<meta name="twitter:description" content="Never miss a call. Never lose a lead. $299/mo. Live in 48 hours.">
+<meta name="twitter:description" content="Never miss a call. Never lose a lead. From $299/mo. Live in 48 hours.">
 <meta name="twitter:image" content="https://letsgrowdigital.ai/deskmonkey-logo-T.png">
 <style>
   :root {
@@ -397,15 +397,34 @@
   .nav-icon-svg { width: 18px; height: 18px; flex-shrink: 0; }
   .nav-stack-label { display: inline-block; text-align: center; line-height: 1.05; }
   /* deskMonkey logo theme-swap: white-BG in light mode, black-BG in dark mode */
-  .dm-light-only { display: inline-block; }
-  .dm-dark-only { display: none; }
-  body:not(.light-mode) .dm-light-only { display: none; }
-  body:not(.light-mode) .dm-dark-only { display: inline-block; }
+  .dm-light-only { display: inline-block !important; }
+  .dm-dark-only { display: none !important; }
+  body:not(.light-mode) .dm-light-only { display: none !important; }
+  body:not(.light-mode) .dm-dark-only { display: inline-block !important; }
   /* Dark-mode framing — gives the transparent PNG a card so the dark monkey body has contrast */
   /* .dm-logo-framed dark-mode card no longer needed — black-BG logo variant provides its own contrast */
   @media (max-width: 768px) {
     .dm-logo-hero { width: 220px; margin: 0 auto 1.25rem; display: block; }
   }
+
+  /* ===== PRICING TIERS (matches agency.html pkg-* styling) ===== */
+  .packages-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+  .pkg-card { background: var(--dark-3); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem 2rem; position: relative; display: flex; flex-direction: column; }
+  .pkg-card.featured { border-color: var(--purple-light); background: linear-gradient(135deg, rgba(107,53,217,0.10), rgba(212,53,160,0.10)); }
+  .pkg-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gradient); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.3rem 1rem; border-radius: 50px; white-space: nowrap; letter-spacing: 0.06em; text-transform: uppercase; }
+  .pkg-name { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem; }
+  .pkg-price { font-size: 2.75rem; font-weight: 800; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+  .pkg-period { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
+  .pkg-desc { font-size: 0.875rem; color: var(--text-muted); margin: 1rem 0 1.5rem; min-height: 2.5em; }
+  .pkg-features { list-style: none; margin-bottom: 2rem; padding: 0; flex-grow: 1; }
+  .pkg-features li { font-size: 0.875rem; color: var(--text-muted); padding: 0.5rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.45; }
+  .pkg-features li:last-child { border-bottom: none; }
+  .pkg-features li::before { content: "✓"; color: var(--purple-light); font-weight: 700; flex-shrink: 0; margin-top: 0.05em; }
+  .pkg-features li.muted { color: var(--text-dim); }
+  .pkg-features li.muted::before { content: "·"; color: var(--text-dim); font-size: 1.2em; line-height: 1; margin-top: -0.1em; }
+  .pkg-foot { text-align: center; max-width: 720px; margin: 1.5rem auto 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+  .pkg-foot strong { color: var(--text); font-weight: 600; }
+  @media (max-width: 1024px) { .packages-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } }
 </style>
 </head>
 <body class="light-mode">
@@ -467,8 +486,8 @@
       </div>
       <div class="hero-stats">
         <div class="hero-stat-card">
-          <div class="hero-stat-num">$299</div>
-          <div class="hero-stat-label">/mo · Live in 48 hours</div>
+          <div class="hero-stat-num">From $299</div>
+          <div class="hero-stat-label">/mo · 3 tiers · Live in 48 hours</div>
         </div>
         <div class="hero-stat-card">
           <div class="hero-stat-num">78%</div>
@@ -609,7 +628,7 @@
         <tbody>
           <tr>
             <td class="first">Starting price</td>
-            <td class="us">$299/mo</td>
+            <td class="us">$299–$999/mo</td>
             <td class="meh">$200–400/mo</td>
             <td class="meh">$60–300/mo</td>
             <td class="bad">$1,500–2,500/mo + benefits</td>
@@ -707,6 +726,80 @@
       <span class="industry-pill">Restaurants</span>
       <span class="industry-pill">Recreation</span>
     </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ===== PRICING TIERS ===== -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div style="text-align:center; max-width:820px; margin:0 auto 3.5rem;" class="fade-up">
+      <p class="overline">Pricing</p>
+      <h2 class="headline" style="margin: 0.75rem 0 1rem;">Three tiers, <span class="gradient-text">priced by call volume.</span></h2>
+      <p class="subhead" style="font-size:1rem;">Pick the plan that matches how busy your phones get. Every tier includes setup, brand-voice training, and live-in-48-hours onboarding. Upgrade or downgrade as your volume changes.</p>
+    </div>
+    <div class="packages-grid">
+
+      <!-- Starter -->
+      <div class="pkg-card fade-up stagger-1">
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-price">$299<span class="pkg-period">/mo</span></div>
+        <div class="pkg-desc">Just the basics, done right. Perfect for solo operators and lower-volume shops.</div>
+        <ul class="pkg-features">
+          <li><strong style="color:var(--text)">250 minutes</strong> / month included</li>
+          <li>$0.40 per extra minute</li>
+          <li><strong style="color:var(--text)">1 channel:</strong> Voice <em style="color:var(--text-dim)">or</em> Web Chat</li>
+          <li>Email support · 24-hour response</li>
+          <li>Calendar booking + appointment confirmations</li>
+          <li>FAQ handling + basic intake script</li>
+          <li>Live in 48 hours</li>
+        </ul>
+        <a href="index.html#contact" class="btn-outline" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+
+      <!-- Growth (featured) -->
+      <div class="pkg-card featured fade-up stagger-2">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-name">Growth</div>
+        <div class="pkg-price">$499<span class="pkg-period">/mo</span></div>
+        <div class="pkg-desc">Sweet spot for most local businesses running real marketing and after-hours coverage.</div>
+        <ul class="pkg-features">
+          <li><strong style="color:var(--text)">750 minutes</strong> / month included</li>
+          <li>$0.30 per extra minute <em style="color:var(--purple-light)">(25% lower rate)</em></li>
+          <li><strong style="color:var(--text)">3 channels</strong> — pick from Voice, SMS, Web Chat, Web Voice Bot, WhatsApp, Facebook</li>
+          <li>Phone + email support · business hours</li>
+          <li>After-hours + weekend coverage</li>
+          <li>Custom intake flows + urgency triage</li>
+          <li>CRM integration (Monday, HubSpot, Pipedrive)</li>
+          <li>Monthly performance reports</li>
+        </ul>
+        <a href="index.html#contact" class="btn-primary" style="width:100%;justify-content:center;">Get Started →</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="pkg-card fade-up stagger-3">
+        <div class="pkg-name">Pro</div>
+        <div class="pkg-price">$999<span class="pkg-period">/mo</span></div>
+        <div class="pkg-desc">Full-stack for high-volume operators, multi-location businesses, and ad-driven shops.</div>
+        <ul class="pkg-features">
+          <li><strong style="color:var(--text)">2,000 minutes</strong> / month included</li>
+          <li>$0.18 per extra minute <em style="color:var(--purple-light)">(55% lower rate)</em></li>
+          <li><strong style="color:var(--text)">All 6 channels:</strong> Voice + SMS + WhatsApp + Facebook + Web Voice Bot + Web Chat Bot</li>
+          <li>Dedicated account rep + priority support</li>
+          <li>Multi-location / multi-business support</li>
+          <li>A/B testing of intake scripts</li>
+          <li>Custom CRM integrations + automations</li>
+          <li>Custom dashboards + weekly reports</li>
+        </ul>
+        <a href="index.html#contact" class="btn-outline" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+
+    </div>
+    <p class="pkg-foot">
+      Need more channels on Starter or Growth? <strong>Add any single channel for $49/mo.</strong>
+      Phone numbers, custom integrations, and call routing rules are quoted per setup. Talk to us about volume pricing if you do 5,000+ minutes a month.
+    </p>
   </div>
 </section>
 
