@@ -267,6 +267,31 @@
 
   /* CTA */
   .cta-section { padding: 100px 0; }
+
+  /* ===== CONTACT FORM (canonical contact destination — links from all pages land here) ===== */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); }
+  .form-group input, .form-group select, .form-group textarea {
+    background: var(--dark-3); border: 1px solid var(--border);
+    color: var(--text); border-radius: 8px; padding: 0.75rem 1rem;
+    font-family: var(--font-sans); font-size: 0.9rem;
+    transition: border-color 0.2s; outline: none;
+  }
+  .form-group select option { background: var(--dark-3); color: var(--text); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: rgba(139,85,246,0.5); }
+  .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; }
+  .form-group textarea { min-height: 120px; resize: vertical; }
+  .contact-info { padding-top: 0.5rem; }
+  .contact-info h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1rem; }
+  .contact-info p { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+  .contact-points { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-point { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-point-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(107,53,217,0.15); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+  .contact-point h4 { font-size: 0.9rem; font-weight: 600; }
+  .contact-point p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0; }
+  @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 3rem; } }
   .cta-box {
     background: linear-gradient(135deg, rgba(107,53,217,0.12), rgba(212,53,160,0.08));
     border: 1px solid rgba(139,85,246,0.3);
@@ -331,7 +356,7 @@
     <li><a href="ai-solutions.html" class="nav-solutions-link"><svg class="nav-icon-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 1 L10.2 7.8 L17 9 L10.2 10.2 L9 17 L7.8 10.2 L1 9 L7.8 7.8 Z"/><path d="M19 3 L19.7 5.3 L22 6 L19.7 6.7 L19 9 L18.3 6.7 L16 6 L18.3 5.3 Z"/><path d="M21 17 L21.4 18.6 L23 19 L21.4 19.4 L21 21 L20.6 19.4 L19 19 L20.6 18.6 Z" opacity="0.75"/></svg>AI Solutions</a></li>
     <li><a href="agency.html" class="nav-agency-link"><svg class="nav-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg><span class="nav-stack-label">Marketing<br>Agency</span></a></li>
     <li><a href="about.html" class="active">About</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="index.html#contact" class="nav-cta">Sign Up →</a>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme" role="switch" aria-checked="false">
@@ -447,13 +472,103 @@
 </section>
 
 
+<!-- ===== CONTACT (canonical destination — all "Contact" nav links land here) ===== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <p class="overline" style="margin-bottom:1rem;">Get In Touch</p>
+        <h3>Let's grow<br><span class="gradient-text">your business</span></h3>
+        <p>Tell us about your goals and we'll take a detailed look at your current strategy. No hard sell — just honest insight on whether we're a great fit for each other.</p>
+        <div class="contact-points">
+          <div class="contact-point">
+            <div class="contact-point-icon">📍</div>
+            <div>
+              <h4>Office Locations</h4>
+              <p>Bay Head, NJ &amp; Boca Raton, FL</p>
+            </div>
+          </div>
+          <div class="contact-point">
+            <div class="contact-point-icon">🗺️</div>
+            <div>
+              <h4>Primary Markets</h4>
+              <p>New Jersey, NYC, Florida</p>
+            </div>
+          </div>
+          <div class="contact-point">
+            <div class="contact-point-icon">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <p><a href="tel:+17324661234" style="color:var(--purple-light);text-decoration:none;">732-466-1234</a></p>
+            </div>
+          </div>
+          <div class="contact-point">
+            <div class="contact-point-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:hello@letsgrowdigital.ai" style="color:var(--purple-light);text-decoration:none;">hello@letsgrowdigital.ai</a></p>
+            </div>
+          </div>
+          <div class="contact-point">
+            <div class="contact-point-icon">⚡</div>
+            <div>
+              <h4>Response Time</h4>
+              <p>We respond within 24 hours — usually sooner</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up stagger-2">
+        <div style="background:var(--dark-3); border:1px solid var(--border); border-radius:20px; padding:2.5rem;">
+          <h3 style="font-size:1.25rem; font-weight:600; margin-bottom:1.75rem;">Sign Up</h3>
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" placeholder="John Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="john@yourbusiness.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+            </div>
+            <div class="form-group">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" placeholder="Acme Corp">
+            </div>
+            <div class="form-group">
+              <label for="message">Tell us about your business (optional)</label>
+              <textarea id="message" name="message" placeholder="What do you do, who are your customers, what's your biggest marketing challenge?"></textarea>
+            </div>
+            <div class="form-group" style="flex-direction:row; align-items:flex-start; gap:0.6rem;">
+              <input type="checkbox" id="sms_optin" name="sms_optin" required style="margin-top:0.25rem; flex-shrink:0; width:18px; height:18px; accent-color: var(--magenta); cursor:pointer;">
+              <label for="sms_optin" style="font-size:0.8rem; line-height:1.55; color:var(--text-muted); margin:0; cursor:pointer;">
+                By checking this box, I agree to receive recurring SMS messages from Lets Grow Digital regarding my inquiry, including appointment confirmations, reminders, and follow-up communications. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Reply <strong>HELP</strong> for help, <strong>STOP</strong> to opt out at any time. See our <a href="privacy.html" style="color: var(--magenta-light); text-decoration: underline;">Privacy Policy</a> and <a href="terms.html" style="color: var(--magenta-light); text-decoration: underline;">Terms of Service</a> for details.
+              </label>
+            </div>
+            <input type="hidden" name="form_version" value="2026-05-02-sms-v1">
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;border:none;padding:1rem 2rem;font-size:1rem;">
+              Send Request →
+            </button>
+            <p style="font-size:0.75rem; color:var(--text-dim); text-align:center;">No commitment. We'll reach out within 24 hours.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- CTA -->
 <section class="cta-section">
 <div class="container">
   <div class="cta-box">
     <h2>Ready to Grow <span class="gradient-text">Faster?</span></h2>
     <p>Let's talk about your current growth challenges, where you want to be, and how we can help you get there with smart, data-driven marketing powered by AI.</p>
-    <a href="index.html#contact" class="btn-primary" style="margin-top:20px;">Book A Demo</a>
+    <a href="#contact" class="btn-primary" style="margin-top:20px;">Book A Demo</a>
   </div>
 </div>
 </section>
@@ -481,7 +596,7 @@
       <h4>Company</h4>
       <ul>
         <li><a href="about.html">About LGD</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
         <li><a href="index.html">Home</a></li>
       </ul>
     </div>
@@ -498,6 +613,59 @@
   </div>
 </div>
 </footer>
+
+<script>
+  // Cloudflare Worker URL — same proxy used by index.html / agency.html contact forms
+  const WORKER_URL = 'https://kb-leads-proxy.bryan-boutin.workers.dev';
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    const originalText = btn.textContent;
+    const f = new FormData(e.target);
+    const phoneVal = (f.get('phone') || '').toString().trim();
+    const smsCheckbox = e.target.querySelector('#sms_optin');
+    if (phoneVal && smsCheckbox && !smsCheckbox.checked) {
+      btn.textContent = '✗ Please confirm SMS consent above';
+      btn.style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
+      smsCheckbox.focus();
+      smsCheckbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; }, 3000);
+      return;
+    }
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    const smsOptedIn = !!(smsCheckbox && smsCheckbox.checked);
+    const payload = {
+      name: (f.get('name') || '').toString(),
+      email: (f.get('email') || '').toString(),
+      phone: phoneVal,
+      company: (f.get('company') || '').toString(),
+      message: (f.get('message') || '').toString(),
+      source: 'Lets Grow Digital Website',
+      entryPoint: 'About Page Contact Form',
+      sms_optin: smsOptedIn,
+      sms_optin_timestamp: smsOptedIn ? new Date().toISOString() : '',
+      form_version: e.target.querySelector('input[name="form_version"]')?.value || ''
+    };
+    try {
+      const response = await fetch(`${WORKER_URL}/lead`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+      });
+      if (response.ok) {
+        btn.textContent = '✓ Request Sent! We\'ll be in touch within 24 hours.';
+        btn.style.background = 'linear-gradient(135deg, #1e7e34, #28a745)';
+        e.target.reset();
+        setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+      } else { throw new Error('Request failed'); }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      btn.textContent = '✗ Error. Please try again.';
+      btn.style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
+      setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+    }
+  }
+</script>
 
 <script>
 function toggleTheme() {
