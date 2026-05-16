@@ -135,13 +135,22 @@ export default {
     // Accept BOTH shapes of payload:
     //   LGD/agency:           { firstName, lastName, email, company, goal, budget, description, ... }
     //   LGC/LGP/InsureMyBiz:  { name, email, phone, message, company?, ... }
+    // Plus A2P 10DLC compliance fields (optional, present when form is the post-SMS-opt-in version):
+    //   sms_optin (bool), sms_optin_timestamp (ISO string), form_version (string)
     const {
       firstName, lastName, name,
       email, phone, company,
       goal, budget,
       description, message,
       source,
+      sms_optin, sms_optin_timestamp, form_version,
     } = body;
+
+    // Capture submitter IP for TCPA / A2P 10DLC compliance audit trail.
+    // CF-Connecting-IP is Cloudflare's authoritative client IP header.
+    const submitterIp = request.headers.get('CF-Connecting-IP')
+      || request.headers.get('X-Forwarded-For')?.split(',')[0]?.trim()
+      || '';
 
     // Only email is universally required; derive a name from whatever was provided
     if (!email) {
@@ -188,6 +197,15 @@ export default {
       lead_phone:           phone ? { phone: String(phone).replace(/\D/g, ''), countryShortName: 'US' } : undefined,
       color_mkyb8krc:       { label: detectedSource },                     // Lead Source (status)
       long_text_mm226ey8:   descriptionText ? { text: descriptionText } : undefined,
+
+      // ── A2P 10DLC compliance audit fields (only populated when present in payload) ──
+      // SMS Opt-In status: Yes / No / Unknown (Unknown = field missing, e.g. legacy form versions)
+      color_mm3d2g10:       sms_optin === true  ? { label: 'Yes' }
+                          : sms_optin === false ? { label: 'No' }
+                          : undefined,
+      date_mm3dx0r6:        parseConsentTimestamp(sms_optin_timestamp),    // SMS Opt-In Timestamp (date+time)
+      text_mm3dyaz6:        form_version || undefined,                     // Form Version
+      text_mm3de1c5:        submitterIp || undefined,                      // Submitter IP
     };
 
     // Strip undefined values so we don't send empty keys to Monday
@@ -246,4 +264,22 @@ function json(body, status = 200, extraHeaders = {}) {
     status,
     headers: { 'Content-Type': 'application/json', ...extraHeaders },
   });
+}
+
+// Parse ISO timestamp string (e.g. "2026-05-16T20:30:00.000Z") into Monday date column format.
+// Monday's date column accepts { date: "YYYY-MM-DD", time: "HH:MM:SS" } (UTC).
+// Returns undefined on missing/invalid input so the column stays empty (vs. erroring the mutation).
+function parseConsentTimestamp(iso) {
+  if (!iso) return undefined;
+  try {
+    const d = new Date(iso);
+    if (isNaN(d.getTime())) return undefined;
+    const isoStr = d.toISOString();
+    return {
+      date: isoStr.slice(0, 10),  // YYYY-MM-DD
+      time: isoStr.slice(11, 19), // HH:MM:SS
+    };
+  } catch {
+    return undefined;
+  }
 }
