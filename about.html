@@ -544,12 +544,15 @@
               <textarea id="message" name="message" placeholder="What do you do, who are your customers, what's your biggest marketing challenge?"></textarea>
             </div>
             <div class="form-group" style="flex-direction:row; align-items:flex-start; gap:0.6rem;">
-              <input type="checkbox" id="sms_optin" name="sms_optin" required style="margin-top:0.25rem; flex-shrink:0; width:18px; height:18px; accent-color: var(--magenta); cursor:pointer;">
+              <input type="checkbox" id="sms_optin" name="sms_optin" style="margin-top:0.25rem; flex-shrink:0; width:18px; height:18px; accent-color: var(--magenta); cursor:pointer;">
               <label for="sms_optin" style="font-size:0.8rem; line-height:1.55; color:var(--text-muted); margin:0; cursor:pointer;">
-                By checking this box, I agree to receive recurring SMS messages from Lets Grow Digital regarding my inquiry, including appointment confirmations, reminders, and follow-up communications. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Reply <strong>HELP</strong> for help, <strong>STOP</strong> to opt out at any time. See our <a href="privacy.html" style="color: var(--magenta-light); text-decoration: underline;">Privacy Policy</a> and <a href="terms.html" style="color: var(--magenta-light); text-decoration: underline;">Terms of Service</a> for details.
+                I consent to receive non-marketing text messages from Lets Grow Digital about appointment confirmations, appointment reminders, and customer service communications related to my inquiry. Message frequency may vary. Message and data rates may apply. Reply <strong>HELP</strong> for help, <strong>STOP</strong> to opt out at any time. Consent is not a condition of purchase.
               </label>
             </div>
-            <input type="hidden" name="form_version" value="2026-05-02-sms-v1">
+            <p style="font-size:0.72rem; color:var(--text-dim); text-align:center; margin: 0.25rem 0 0;">
+              By submitting this form, you acknowledge our <a href="privacy.html" style="color: var(--magenta-light); text-decoration: underline;">Privacy Policy</a> and <a href="terms.html" style="color: var(--magenta-light); text-decoration: underline;">Terms of Service</a>.
+            </p>
+            <input type="hidden" name="form_version" value="2026-05-02-sms-v2-optional">
             <button type="submit" class="btn-primary" style="width:100%;justify-content:center;border:none;padding:1rem 2rem;font-size:1rem;">
               Send Request →
             </button>
@@ -625,14 +628,8 @@
     const f = new FormData(e.target);
     const phoneVal = (f.get('phone') || '').toString().trim();
     const smsCheckbox = e.target.querySelector('#sms_optin');
-    if (phoneVal && smsCheckbox && !smsCheckbox.checked) {
-      btn.textContent = '✗ Please confirm SMS consent above';
-      btn.style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
-      smsCheckbox.focus();
-      smsCheckbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; }, 3000);
-      return;
-    }
+    // SMS opt-in is OPTIONAL per CTIA/A2P 10DLC rules — form submits regardless of checkbox state.
+    // The sms_optin flag in the payload controls whether the worker sends SMS to this lead.
     btn.textContent = 'Sending...';
     btn.disabled = true;
     const smsOptedIn = !!(smsCheckbox && smsCheckbox.checked);
