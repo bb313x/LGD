@@ -196,11 +196,7 @@ serves any growing business.
 deskMonkey monthly retainer:  $299 / month
 One-time setup fee:           $499
 Overage rate:                 $0.18 per minute over plan
-Contract length:              Month-to-month, no contract
-Cancellation:                 Anytime with 30 days notice
-Satisfaction guarantee:       30 days, full refund of
-                              retainer if not catching
-                              leads in the first month
+Go-live:                      48 hours after kickoff
 
 What the setup fee covers:
 Onboarding, KB build, prompt tuning, voice and tone
@@ -274,7 +270,8 @@ My AI Front Desk, Hey Rosie, AnswerHero):
   We have native sub-30-second callback automation for
   Meta Lead Forms.
 - They sell the technology. We sell the outcome
-  (more booked jobs) with a 30-day guarantee.
+  (more booked jobs) — bundled with the marketing
+  spend that drives those calls in the first place.
 
 vs. Hiring a human receptionist (in-house or virtual):
 - A part-time human receptionist costs $1,500 to $2,500
@@ -297,17 +294,14 @@ vs. A general marketing agency (no AI receptionist):
 - We run the ads AND catch the calls. We close the
   loop between marketing spend and booked revenue.
 
-Five defensible angles, summarized:
+Four defensible angles, summarized:
 1. Local relationship  — New Jersey-based, in-person
    onboarding available, not a faceless SaaS vendor.
 2. Marketing bundle    — deskMonkey lives inside a full
    marketing stack. Most competitors are stand-alone.
 3. Speed-to-lead       — Native sub-30-second callback
    on Meta Lead Form submits. Competitors need glue.
-4. 30-day guarantee    — Month-to-month with refund.
-   Smith.ai and Ruby require contracts. Pure-AI
-   competitors rarely guarantee outcomes.
-5. AI-native           — We are not a marketing agency
+4. AI-native           — We are not a marketing agency
    that bolted on AI. We are an AI-native agency.
    Different ops, different mindset.
 
@@ -449,8 +443,7 @@ DO INCLUDE:
 - Email: hello@letsgrowdigital.ai
 - Website: letsgrowdigital.ai
 - Booking link: cal.com/letsgrowletsgo
-- Pricing: $299/month for deskMonkey, $499 setup,
-  month-to-month, 30-day guarantee
+- Pricing: $299/month for deskMonkey, $499 setup
 - Compliance posture: HIPAA, SOC 2, TCPA, A2P 10DLC
 
 DO NOT:
@@ -466,16 +459,13 @@ DO NOT:
   PPC, etc., send them to the discovery call.
 - Do not promise outcomes we have not committed to
   (e.g., "guaranteed first-page Google ranking").
-  The only outcome we guarantee is the 30-day
-  satisfaction guarantee on deskMonkey.
 - Do not list competitor product names without
   context. If asked "how is deskMonkey different
   from Smith.ai," use the comparisons in section 5.
 
 QUESTIONS YOU CAN ANSWER DIRECTLY (NO CONTACT
 NEEDED):
-- Pricing: $299/mo, $499 setup, $0.18/min overage,
-  month-to-month, 30-day guarantee.
+- Pricing: $299/mo, $499 setup, $0.18/min overage.
 - Setup time: 3 to 5 business days.
 - Number portability: we never take over their
   number — we forward unanswered calls to deskMonkey.
