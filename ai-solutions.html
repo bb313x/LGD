@@ -906,5 +906,231 @@ Cal("floatingButton", { calLink: "letsgrowletsgo?metadata[source]=AI Solutions P
 Cal("ui", { theme: "dark", styles: { branding: { brandColor: "#7c3aed" } } });
 </script>
 
+<!-- ===== TRILLET VOICE WIDGET (deskMonkey · bottom-left; Cal.com lives bottom-right) =====
+     Source: docs.trillet.ai/documentation/web-integration/voice-agent ("Full Widget")
+     Rebranded: LGD gradient, DM Sans, light/dark CSS vars, bottom-left.
+     Workspace 69e69b651b3de0d5cc652aeb · Agent 69e8a7bf1b3de0d5ccd34dc1
+-->
+<style>
+  #trillet-v-bubble { position: fixed; bottom: 24px; left: 24px; width: 56px; height: 56px; background: var(--gradient); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(107,53,217,0.35); border: none; z-index: 998; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  #trillet-v-bubble:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(107,53,217,0.5); }
+  #trillet-v-bubble svg { width: 24px; height: 24px; fill: #fff; }
+
+  #trillet-v-panel { position: fixed; bottom: 92px; left: 24px; width: 360px; max-width: calc(100vw - 48px); background: var(--dark-2); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 24px 56px rgba(0,0,0,0.45); display: none; flex-direction: column; overflow: hidden; z-index: 998; font-family: var(--font-sans); }
+  body.light-mode #trillet-v-panel { box-shadow: 0 24px 56px rgba(10,10,26,0.18); }
+  #trillet-v-panel.open { display: flex; animation: trillet-v-in 0.18s cubic-bezier(0.16,1,0.3,1); }
+  @keyframes trillet-v-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .trillet-v-header { padding: 14px 16px; background: var(--gradient); color: #fff; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
+  .trillet-v-header h3 { font-size: 14px; font-weight: 600; margin: 0; color: #fff; font-family: var(--font-sans); }
+  .trillet-v-header .status { font-size: 12px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+  .trillet-v-header .status-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+  .trillet-v-header .status-dot.online { background: #10b981; }
+  .trillet-v-close { background: none; border: none; color: #fff; cursor: pointer; font-size: 16px; padding: 4px; line-height: 1; opacity: 0.8; transition: opacity 0.1s; }
+  .trillet-v-close:hover { opacity: 1; }
+
+  .trillet-v-transcript { max-height: 200px; overflow-y: auto; padding: 12px 16px; display: flex; flex-direction: column; gap: 6px; background: var(--dark); }
+  body.light-mode .trillet-v-transcript { background: var(--dark-3); }
+  .trillet-v-msg { max-width: 85%; padding: 7px 11px; border-radius: 10px; font-size: 12px; line-height: 1.45; word-wrap: break-word; }
+  .trillet-v-msg.user { background: var(--gradient); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .trillet-v-msg.assistant { background: var(--dark-3); color: var(--text); align-self: flex-start; border: 1px solid var(--border); border-bottom-left-radius: 4px; }
+  body.light-mode .trillet-v-msg.assistant { background: var(--dark); }
+  .trillet-v-msg.system { background: none; color: var(--text-dim); align-self: center; font-size: 11px; padding: 2px 8px; font-style: italic; }
+
+  .trillet-v-controls { padding: 18px; background: var(--dark-2); border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+  .trillet-v-vis { display: flex; align-items: center; justify-content: center; gap: 3px; height: 32px; }
+  .trillet-v-vis .bar { width: 3px; height: 6px; background: var(--purple-light); border-radius: 2px; transition: height 0.1s; }
+  .trillet-v-vis.active .bar { animation: trillet-pulse 0.8s infinite ease-in-out; }
+  .trillet-v-vis.active .bar:nth-child(1) { animation-delay: 0s; }
+  .trillet-v-vis.active .bar:nth-child(2) { animation-delay: 0.1s; }
+  .trillet-v-vis.active .bar:nth-child(3) { animation-delay: 0.2s; }
+  .trillet-v-vis.active .bar:nth-child(4) { animation-delay: 0.3s; }
+  .trillet-v-vis.active .bar:nth-child(5) { animation-delay: 0.4s; }
+  .trillet-v-vis.active .bar:nth-child(6) { animation-delay: 0.3s; }
+  .trillet-v-vis.active .bar:nth-child(7) { animation-delay: 0.2s; }
+  @keyframes trillet-pulse { 0%, 100% { height: 6px; } 50% { height: 22px; } }
+
+  .trillet-v-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+  .trillet-v-btns { display: flex; align-items: center; gap: 12px; }
+  .trillet-v-mic { width: 52px; height: 52px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.15s, box-shadow 0.15s; }
+  .trillet-v-mic.idle, .trillet-v-mic.active { background: var(--gradient); color: #fff; box-shadow: 0 6px 18px rgba(107,53,217,0.35); }
+  .trillet-v-mic.idle:hover { transform: scale(1.05); }
+  .trillet-v-mic.active { animation: trillet-mic-ring 1.6s infinite; }
+  @keyframes trillet-mic-ring { 0% { box-shadow: 0 0 0 0 rgba(212,53,160,0.5), 0 6px 18px rgba(107,53,217,0.35); } 70% { box-shadow: 0 0 0 16px rgba(212,53,160,0), 0 6px 18px rgba(107,53,217,0.35); } 100% { box-shadow: 0 0 0 0 rgba(212,53,160,0), 0 6px 18px rgba(107,53,217,0.35); } }
+  .trillet-v-mic.muted { background: #fef2f2; color: #ef4444; box-shadow: none; }
+  .trillet-v-mic svg { width: 22px; height: 22px; }
+
+  .trillet-v-end { width: 44px; height: 44px; border-radius: 50%; border: none; background: #ef4444; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.1s; }
+  .trillet-v-end:hover { background: #dc2626; }
+  .trillet-v-end svg { width: 18px; height: 18px; }
+
+  @media (max-width: 480px) {
+    #trillet-v-bubble { bottom: 16px; left: 16px; width: 52px; height: 52px; }
+    #trillet-v-panel { width: calc(100vw - 32px); left: 16px; bottom: 80px; }
+  }
+</style>
+
+<button id="trillet-v-bubble" aria-label="Open deskMonkey voice demo">
+  <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+</button>
+
+<div id="trillet-v-panel" role="dialog" aria-label="deskMonkey voice demo">
+  <div class="trillet-v-header">
+    <div>
+      <h3>deskMonkey</h3>
+      <div class="status">
+        <div class="status-dot" id="trillet-v-dot"></div>
+        <span id="trillet-v-status-text">Ready</span>
+      </div>
+    </div>
+    <button class="trillet-v-close" id="trillet-v-close" aria-label="Close">&#x2715;</button>
+  </div>
+  <div class="trillet-v-transcript" id="trillet-v-transcript"></div>
+  <div class="trillet-v-controls">
+    <div class="trillet-v-vis" id="trillet-v-vis">
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+    <div class="trillet-v-label" id="trillet-v-label">Tap the mic to start</div>
+    <div class="trillet-v-btns" id="trillet-v-btns">
+      <button class="trillet-v-mic idle" id="trillet-v-mic" aria-label="Start voice call">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import { TrilletAgent } from 'https://cdn.jsdelivr.net/npm/@trillet-ai/web-sdk/+esm';
+
+  const WORKSPACE_ID = '69e69b651b3de0d5cc652aeb';
+  const AGENT_ID = '69e8a7bf1b3de0d5ccd34dc1';
+
+  const $ = (id) => document.getElementById(id);
+  const bubble = $('trillet-v-bubble');
+  const panel = $('trillet-v-panel');
+  const micSvg = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>`;
+  const micMutedSvg = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"/></svg>`;
+  const hangupSvg = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08a.956.956 0 010-1.36C3.55 8.67 7.56 7 12 7s8.45 1.67 11.71 4.72c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.1-.7-.28-.79-.73-1.68-1.36-2.66-1.85a.993.993 0 01-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/></svg>`;
+
+  let agent = null;
+  let isActive = false;
+  let isMuted = false;
+  let pollInterval = null;
+  const displayed = new Set();
+
+  bubble.addEventListener('click', () => panel.classList.toggle('open'));
+  $('trillet-v-close').addEventListener('click', () => panel.classList.remove('open'));
+  $('trillet-v-mic').addEventListener('click', () => { if (!isActive) connectAgent(); else toggleMute(); });
+
+  async function connectAgent() {
+    setStatus('Connecting...', false);
+    $('trillet-v-label').textContent = 'Connecting...';
+    $('trillet-v-mic').disabled = true;
+    try {
+      agent = new TrilletAgent({ workspaceId: WORKSPACE_ID, agentId: AGENT_ID, mode: 'voice' });
+      agent.on('connected', () => {
+        isActive = true; isMuted = false;
+        setStatus('Connected', true);
+        $('trillet-v-label').textContent = 'Listening...';
+        $('trillet-v-vis').classList.add('active');
+        $('trillet-v-mic').disabled = false;
+        showActiveControls();
+        addMsg('Voice call connected', 'system');
+        startPolling();
+      });
+      agent.on('disconnected', () => {
+        isActive = false;
+        setStatus('Disconnected', false);
+        $('trillet-v-label').textContent = 'Call ended';
+        $('trillet-v-vis').classList.remove('active');
+        showIdleControls();
+        stopPolling();
+        addMsg('Call ended', 'system');
+      });
+      agent.on('error', () => { addMsg('An error occurred', 'system'); setStatus('Error', false); });
+      agent.on('assistantStartedSpeaking', () => { $('trillet-v-label').textContent = 'Agent speaking...'; });
+      agent.on('assistantStoppedSpeaking', () => { $('trillet-v-label').textContent = isMuted ? 'Muted' : 'Listening...'; });
+      ['message', 'transcript', 'transcriptUpdate'].forEach(evt => {
+        agent.on(evt, (data) => {
+          if (data?.isFinal === false) return;
+          const text = typeof data === 'string' ? data : data?.text || data?.content;
+          const role = data?.role || 'assistant';
+          if (text) addMsg(text, role);
+        });
+      });
+      await agent.startPublicCall();
+    } catch (err) {
+      setStatus('Failed', false);
+      $('trillet-v-label').textContent = 'Failed to connect';
+      $('trillet-v-mic').disabled = false;
+      showIdleControls();
+    }
+  }
+
+  function toggleMute() {
+    isMuted = !isMuted;
+    try { agent?.toggleMicrophone?.(!isMuted); } catch (e) {}
+    const mic = $('trillet-v-mic');
+    if (isMuted) {
+      mic.className = 'trillet-v-mic muted'; mic.innerHTML = micMutedSvg;
+      $('trillet-v-label').textContent = 'Muted';
+    } else {
+      mic.className = 'trillet-v-mic active'; mic.innerHTML = micSvg;
+      $('trillet-v-label').textContent = 'Listening...';
+    }
+  }
+
+  function endCall() { try { agent?.endCall(); } catch (e) {} }
+
+  function showActiveControls() {
+    $('trillet-v-btns').innerHTML = `<button class="trillet-v-end" id="trillet-v-end" aria-label="End call">${hangupSvg}</button><button class="trillet-v-mic active" id="trillet-v-mic" aria-label="Mute / unmute">${micSvg}</button>`;
+    $('trillet-v-end').addEventListener('click', endCall);
+    $('trillet-v-mic').addEventListener('click', toggleMute);
+  }
+
+  function showIdleControls() {
+    $('trillet-v-btns').innerHTML = `<button class="trillet-v-mic idle" id="trillet-v-mic" aria-label="Start voice call">${micSvg}</button>`;
+    $('trillet-v-mic').addEventListener('click', () => { if (!isActive) connectAgent(); else toggleMute(); });
+  }
+
+  function startPolling() {
+    let lastCount = 0;
+    pollInterval = setInterval(() => {
+      if (!agent || !isActive) return;
+      try {
+        const transcripts = agent.getTranscripts?.() || [];
+        for (let i = lastCount; i < transcripts.length; i++) {
+          const t = transcripts[i];
+          if (t.text) addMsg(t.text, t.role || 'assistant');
+        }
+        lastCount = transcripts.length;
+      } catch (e) {}
+    }, 500);
+  }
+
+  function stopPolling() { if (pollInterval) { clearInterval(pollInterval); pollInterval = null; } }
+
+  function setStatus(text, online) {
+    $('trillet-v-status-text').textContent = text;
+    $('trillet-v-dot').classList.toggle('online', online);
+  }
+
+  function addMsg(text, type) {
+    if (!text?.trim()) return;
+    const key = type + ':' + text;
+    if (displayed.has(key)) return;
+    displayed.add(key);
+    const el = document.createElement('div');
+    el.className = 'trillet-v-msg ' + type;
+    el.textContent = text;
+    const container = $('trillet-v-transcript');
+    container.appendChild(el);
+    container.scrollTop = container.scrollHeight;
+  }
+</script>
+
+
 </body>
 </html>

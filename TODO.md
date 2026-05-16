@@ -2,15 +2,21 @@
 
 Pending work that needs an external dependency before it can ship. Maintained here so it doesn't get lost between Claude sessions.
 
-## 1. Trillet web widget integration
-**Status:** Blocked on Trillet
-**Owner:** Bryan to ping Ori at Trillet
-**Context:** Trillet's portal (app.trillet.ai) does not appear to expose a self-serve JavaScript/iframe widget. The "Share Demo" button creates a hosted demo page on trillet.ai but not an embed. The closest equivalent on-site today is the custom `dm-widget-*` floating launcher on `deskmonkey.html`, which is visual-only.
+## 1. Trillet web widget integration ✅ DONE
+**Status:** Complete (2026-05-16). Trillet's "Full Widget — Voice panel with controls and transcript" (docs.trillet.ai/documentation/web-integration/voice-agent) is deployed and rebranded across all 6 public pages: `index.html`, `ai-solutions.html`, `about.html`, `agency.html`, `deskmonkey.html`, `audit/index.html`.
 
-**What to ask Ori:**
-> Do you have a JavaScript/iframe widget or SDK for embedding the Lets Grow Digital agent on letsgrowdigital.ai/deskmonkey.html? I want to replace the floating Try-Live button with the real Trillet voice/text widget.
+**Rebrand applied:**
+- Trillet's `#0066ff` → LGD `var(--gradient)` (#6B35D9 → #D435A0)
+- Position bottom-LEFT (Cal.com keeps bottom-right)
+- Light/dark mode aware via existing CSS vars (`--dark-2`, `--border`, `--text`, etc.)
+- DM Sans font, single inline style+script block per page
 
-**When the snippet arrives:** drop it into `deskmonkey.html` just before `</body>`, after the Cal.com snippet. Optionally also add to `index.html` and `ai.html` for site-wide presence.
+**Widget config:**
+- Workspace ID `69e69b651b3de0d5cc652aeb`, Agent ID `69e8a7bf1b3de0d5ccd34dc1`
+- SDK from `cdn.jsdelivr.net/npm/@trillet-ai/web-sdk/+esm`
+- Prereqs (Bryan-side): Trillet portal Domain whitelist for `letsgrowdigital.ai`, call flow Public Access ON
+
+**deskmonkey.html cleanup:** old custom `dm-widget-*` launcher + text-chat panel + SDK module removed; `#try-it-live` collapsed from two buttons (Talk / Chat) to one Talk button that opens the floating widget.
 
 ## 2. OG / Twitter social cards
 **Status:** Blocked on design (Canva)
