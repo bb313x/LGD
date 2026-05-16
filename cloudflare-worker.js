@@ -148,6 +148,12 @@ export default {
       return json({ error: 'Email is required' }, 422, cors(origin));
     }
 
+    // Reject obviously malformed emails up front so we don't round-trip through
+    // Monday's email-column validation (which throws and returns a 500 to the client).
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim())) {
+      return json({ error: 'Email is not valid' }, 422, cors(origin));
+    }
+
     let fullName = (name || '').trim();
     if (!fullName) fullName = `${firstName || ''} ${lastName || ''}`.trim();
     if (!fullName) fullName = email; // last-resort fallback
